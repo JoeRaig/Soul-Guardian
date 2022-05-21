@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveDirection;
     Vector2 mousePosition;
     float aimDirection;
+    bool isFacingLeft = false;
 
 
     void Awake()
@@ -57,11 +58,22 @@ public class PlayerMovement : MonoBehaviour
     void FaceMouseDirection()
     {
         transform.localScale = new Vector2(Mathf.Sign(aimDirection), 1f);
+        isFacingLeft = Mathf.Sign(aimDirection) < 0;
     }
 
     void WeaponRotation()
     {
-        float aimAngle = Mathf.Atan2(mousePosition.y, aimDirection) * Mathf.Rad2Deg - 45f;
+        float aimAngle;
+
+        if (isFacingLeft)
+        {
+            aimAngle = Mathf.Atan2(aimDirection, mousePosition.y) * Mathf.Rad2Deg + 10f;
+        }
+        else
+        {
+            aimAngle = Mathf.Atan2(mousePosition.y, aimDirection) * Mathf.Rad2Deg - 55f;
+        }
+
         weapon.localRotation = Quaternion.AngleAxis(aimAngle, Vector3.forward);
     }
 }
