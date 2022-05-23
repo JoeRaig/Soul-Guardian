@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] Transform body;
-    [SerializeField] Transform weapon;
-    [SerializeField] GameObject crosshair;
 
     Camera mainCamera;
     Rigidbody2D rb;
@@ -16,9 +14,7 @@ public class Player : MonoBehaviour
     Vector2 moveDirection;
     Vector3 mousePosition;
     Vector3 aimDirection;
-    float aimLength = 3f;
-    bool isFacingLeft = false;
-
+    
 
     void Awake()
     {
@@ -29,14 +25,12 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        ProcessInputs();
         CheckIfMoving();
         FaceMouseDirection();
-        RotateWeapon();
-        CrosshairAim();
     }
 
-    void Move()
+    void ProcessInputs()
     {
         xAxis = Input.GetAxisRaw("Horizontal");
         yAxis = Input.GetAxisRaw("Vertical");
@@ -45,6 +39,11 @@ public class Player : MonoBehaviour
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         aimDirection = mousePosition - transform.position;
 
+        Move();
+    }
+
+    void Move()
+    {
         rb.velocity = moveDirection * moveSpeed;
     }
 
@@ -62,38 +61,6 @@ public class Player : MonoBehaviour
 
     void FaceMouseDirection()
     {
-        isFacingLeft = Mathf.Sign(aimDirection.x) < 0;
-
         body.localScale = new Vector2(Mathf.Sign(aimDirection.x), 1f);
-        weapon.localScale = new Vector2(Mathf.Sign(aimDirection.x), 1f);
-    }
-
-    void RotateWeapon()
-    {
-        float rotationZ;
-
-        Vector3 difference = mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-
-        difference.Normalize();
-
-        if (isFacingLeft)
-        {
-            rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg - 125f;
-        }
-        else
-        {
-            rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg - 55f;
-        }
-
-        weapon.rotation = Quaternion.Euler(0f, 0f, rotationZ);
-    }
-
-    void CrosshairAim()
-    {
-        Vector3 aim = new Vector3(aimDirection.x, mousePosition.y - transform.position.y, 0);
-
-        aim.Normalize();
-        aim *= aimLength;
-        crosshair.transform.localPosition = aim;
     }
 }
