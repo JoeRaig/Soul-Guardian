@@ -4,6 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform body;
+    [SerializeField] Transform attackPoints;
+    [Range(0.1f, 1f)]
+    [SerializeField] float attackRange = 0.5f;
 
     Transform target;
     Animator anim;
@@ -11,7 +14,7 @@ public class Enemy : MonoBehaviour
     int hitPoints = 3;
     float moveSpeed = 3f;
     bool isDead = false;
-    float chaseStopRange = 1f;
+    float chaseStopRange = 1.25f;
 
     void Awake()
     {
@@ -57,14 +60,13 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("isRunning", false);
         anim.SetBool("isAttacking", true);
+
+        // Refactor
+        //Physics2D.OverlapCircleAll(attackPoints.position, attackRange, );
+
     }
 
-    public void CheckIfPlayerIsDamaged()
-    {
-
-    }
-
-    void TakeDamage()
+    void ReceiveDamage()
     {
         hitPoints--;
         if (hitPoints <= 0)
@@ -79,7 +81,7 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Bullet" && !isDead)
         {
             anim.SetTrigger("Hit");
-            TakeDamage();
+            ReceiveDamage();
             Destroy(collision.gameObject);
         } 
     }
