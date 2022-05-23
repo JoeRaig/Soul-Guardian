@@ -59,6 +59,11 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isAttacking", true);
     }
 
+    public void CheckIfPlayerIsDamaged()
+    {
+
+    }
+
     void TakeDamage()
     {
         hitPoints--;
