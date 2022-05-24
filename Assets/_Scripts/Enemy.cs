@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-        if (distanceToTarget > chaseStopRange)
+        if (distanceToTarget > chaseStopRange && !isDead)
         {
             Move();
         }
@@ -89,10 +89,13 @@ public class Enemy : MonoBehaviour
     void ReceiveDamage()
     {
         hitPoints--;
+
         if (hitPoints <= 0)
         {
             isDead = true;
             anim.SetTrigger("Death");
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking", false);
         }
     }
 
