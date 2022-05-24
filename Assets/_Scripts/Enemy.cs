@@ -93,9 +93,10 @@ public class Enemy : MonoBehaviour
         if (hitPoints <= 0)
         {
             isDead = true;
-            anim.SetTrigger("Death");
+           
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
+            anim.SetTrigger("Death");
         }
     }
 
