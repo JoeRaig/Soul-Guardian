@@ -7,7 +7,7 @@ public class Minion : MonoBehaviour
     Animator anim;
     Transform target;
 
-    float moveSpeed = 2f;
+    float moveSpeed = 1f;
     float stopRange = 1f;
 
     void Awake()

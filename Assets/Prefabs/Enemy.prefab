@@ -268,6 +268,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  minionPrefab: {fileID: 249123764434436307, guid: e8df6480b5d6b004a93f20a8f900981b, type: 3}
 --- !u!1 &8087385281870808262
 GameObject:
   m_ObjectHideFlags: 0

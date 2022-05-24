@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -7,6 +8,7 @@ public class Enemy : MonoBehaviour
     [Range(0.1f, 1f)]
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] LayerMask playerLayer;
+    [SerializeField] GameObject minionPrefab;
 
     Transform target;
     Animator anim;
@@ -97,7 +99,19 @@ public class Enemy : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
+
+            StartCoroutine(InvokeMinions());
         }
+    }
+
+    IEnumerator InvokeMinions()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Instantiate(minionPrefab, transform.position + new Vector3(1, 1, 0), Quaternion.identity);
+        Instantiate(minionPrefab, transform.position + new Vector3(2, 0.5f, 0), Quaternion.identity);
+        Instantiate(minionPrefab, transform.position + new Vector3(1.5f, 2, 0), Quaternion.identity);
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
