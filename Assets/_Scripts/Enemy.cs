@@ -4,9 +4,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] Transform body;
-    [SerializeField] Transform attackPoints;
+    [SerializeField] Transform[] attackPoints;
     [Range(0.1f, 1f)]
     [SerializeField] float attackRange = 0.5f;
+    [SerializeField] LayerMask playerLayer;
 
     Transform target;
     Animator anim;
@@ -61,9 +62,16 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isRunning", false);
         anim.SetBool("isAttacking", true);
 
-        // Refactor
-        //Physics2D.OverlapCircleAll(attackPoints.position, attackRange, );
+        foreach (Transform attackPoint in attackPoints)
+        {
+            Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
 
+            if (hitPlayer != null)
+            {
+                hitPlayer.GetComponent<Health>().ReduceHealth();
+                Debug.Log(hitPlayer.gameObject.name);
+            }
+        }
     }
 
     void ReceiveDamage()
@@ -84,5 +92,16 @@ public class Enemy : MonoBehaviour
             ReceiveDamage();
             Destroy(collision.gameObject);
         } 
+    }
+
+    // Melee visual impact gizmo
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoints == null) return;
+
+        foreach (Transform attackPoint in attackPoints)
+        {
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }
     }
 }

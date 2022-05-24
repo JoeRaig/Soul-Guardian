@@ -9,5 +9,6 @@ public class Health : MonoBehaviour
     public void ReduceHealth()
     {
         hitPoints--;
+        Debug.Log(hitPoints);
     }
 }
