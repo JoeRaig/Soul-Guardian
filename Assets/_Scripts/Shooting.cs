@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
 
     Camera mainCamera;
+    Health healthScript;
 
     Vector3 aimDirection;
     float aimLength = 3f;
@@ -19,10 +20,13 @@ public class Shooting : MonoBehaviour
     void Awake()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        healthScript = GetComponent<Health>();
     }
 
     void Update()
     {
+        if (healthScript.PlayerIsDead) return;
+
         RotateWeapon();
         CrosshairAim();
         FaceMouseDirection();

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     Transform target;
     Animator anim;
+    Health healthPlayerScript;
 
     int hitPoints = 3;
     float moveSpeed = 3f;
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        healthPlayerScript = target.GetComponent<Health>();
         anim = GetComponent<Animator>();
     }
 
@@ -46,7 +48,14 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Attack();
+            if (!healthPlayerScript.PlayerIsDead)
+            {
+                MeleeAnimation();
+            }
+            else
+            {
+                anim.SetBool("isAttacking", false);
+            }
         }
     }
 
@@ -57,19 +66,23 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
 
-    void Attack()
+    void MeleeAnimation()
     {
         anim.SetBool("isRunning", false);
         anim.SetBool("isAttacking", true);
+    }
+
+    void Attack()
+    {
+        if (healthPlayerScript.PlayerIsDead) return;
 
         foreach (Transform attackPoint in attackPoints)
         {
             Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
 
-            if (hitPlayer != null)
+            if (hitPlayer != null && !healthPlayerScript.PlayerIsDead)
             {
-                hitPlayer.GetComponent<Health>().ReduceHealth();
-                Debug.Log(hitPlayer.gameObject.name);
+                healthPlayerScript.ReduceHealth();
             }
         }
     }

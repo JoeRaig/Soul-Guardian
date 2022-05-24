@@ -1,14 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    int hitPoints = 10;
+    [SerializeField] GameObject weapon;
+    [SerializeField] GameObject crosshair;
+
+    Animator anim;
+
+    int hitPoints = 5;
+    bool playerIsDead = false;
+    public bool PlayerIsDead { get => playerIsDead; }
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void ReduceHealth()
     {
+        Debug.Log("Hit - " + hitPoints);
+
+        anim.SetTrigger("Hit");
         hitPoints--;
-        Debug.Log(hitPoints);
+
+        if (hitPoints <= 0)
+        {
+            Death();
+            DisablePlayerFunctionalities();
+        }
+    }
+
+    void Death()
+    {
+        playerIsDead = true;
+        anim.SetTrigger("Death");
+    }
+
+    void DisablePlayerFunctionalities()
+    {
+        weapon.SetActive(false);
+        crosshair.SetActive(false);
     }
 }
