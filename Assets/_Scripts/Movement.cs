@@ -7,7 +7,6 @@ public class Movement : MonoBehaviour
     Camera mainCamera;
     Rigidbody2D rb;
     Animator anim;
-    Health healthScript;
 
     float moveSpeed = 5f;
     float xAxis;
@@ -21,13 +20,10 @@ public class Movement : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        healthScript = GetComponent<Health>();
     }
 
     void FixedUpdate()
     {
-        if (healthScript.PlayerIsDead) return;
-
         ProcessInputs();
         CheckIfMoving();
         FaceMouseDirection();

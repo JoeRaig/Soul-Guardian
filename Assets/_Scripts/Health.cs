@@ -18,15 +18,13 @@ public class Health : MonoBehaviour
 
     public void ReduceHealth()
     {
-        Debug.Log("Hit - " + hitPoints);
-
         anim.SetTrigger("Hit");
         hitPoints--;
 
         if (hitPoints <= 0)
         {
             Death();
-            DisablePlayerFunctionalities();
+            DisablePlayerFunctionality();
         }
     }
 
@@ -36,8 +34,11 @@ public class Health : MonoBehaviour
         anim.SetTrigger("Death");
     }
 
-    void DisablePlayerFunctionalities()
+    void DisablePlayerFunctionality()
     {
+        Destroy(gameObject.GetComponent<Movement>());
+        Destroy(gameObject.GetComponent<Rigidbody2D>());
+        anim.SetBool("isRunning", false);
         weapon.SetActive(false);
         crosshair.SetActive(false);
     }
