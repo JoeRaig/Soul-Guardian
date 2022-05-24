@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Minion
+  - Obelisk
   layers:
   - Default
   - TransparentFX

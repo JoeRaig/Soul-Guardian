@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
 
         FaceToTarget();
-        DecideBehaviour();
+        EnemyAI();
     }
 
     void FaceToTarget()
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
-    void DecideBehaviour()
+    void EnemyAI()
     {
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
