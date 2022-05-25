@@ -9,10 +9,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject minionPrefab;
+    [SerializeField] ParticleSystem deathVFX;
+    [SerializeField] int minionAmount;
 
     Transform target;
     Animator anim;
     Health healthPlayerScript;
+    Transform minionPool;
 
     int hitPoints = 3;
     float moveSpeed = 3f;
@@ -22,8 +25,9 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        healthPlayerScript = target.GetComponent<Health>();
         anim = GetComponent<Animator>();
+        healthPlayerScript = target.GetComponent<Health>();
+        minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
     }
 
     void Update()
@@ -100,18 +104,32 @@ public class Enemy : MonoBehaviour
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
 
-            StartCoroutine(InvokeMinions());
+            StartCoroutine(DeathSequence());
         }
     }
 
-    IEnumerator InvokeMinions()
+    IEnumerator DeathSequence()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        deathVFX.Play();
 
-        Instantiate(minionPrefab, transform.position + new Vector3(1, 1, 0), Quaternion.identity);
-        Instantiate(minionPrefab, transform.position + new Vector3(2, 0.5f, 0), Quaternion.identity);
-        Instantiate(minionPrefab, transform.position + new Vector3(1.5f, 2, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+        body.gameObject.SetActive(false);
+
+        InvokeMinions();
+
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
+    }
+
+    void InvokeMinions()
+    {
+        for (int i = 0; i < minionAmount; i++)
+        {
+            Vector3 position = transform.position + new Vector3(Random.Range(0f, 2f), Random.Range(0f, 2f));
+
+            Instantiate(minionPrefab, position, Quaternion.identity, minionPool);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)

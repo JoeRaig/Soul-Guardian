@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmokeTest : MonoBehaviour
+public class VFXsTest : MonoBehaviour
 {
     public ParticleSystem smoke1VFX;
     public ParticleSystem smoke2VFX;
