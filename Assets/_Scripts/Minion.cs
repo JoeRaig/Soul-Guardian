@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Minion : MonoBehaviour
@@ -7,6 +8,7 @@ public class Minion : MonoBehaviour
     Animator anim;
     Transform target;
 
+    bool isActive = false;
     float moveSpeed = 1f;
     float stopRange = 1f;
 
@@ -16,10 +18,25 @@ public class Minion : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Obelisk").transform.GetChild(0).GetComponent<Transform>();
     }
 
+    void Start()
+    {
+        StartCoroutine(InitializeMinion());   
+    }
+
     void Update()
     {
         FaceToTarget();
-        MinionAI();
+
+        if (isActive) MinionAI();
+    }
+
+    IEnumerator InitializeMinion()
+    {
+        yield return new WaitForSeconds(0.5f);
+        body.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.75f);
+        isActive = true;
     }
 
     void MinionAI()
