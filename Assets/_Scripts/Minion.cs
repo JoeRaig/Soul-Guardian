@@ -31,7 +31,6 @@ public class Minion : MonoBehaviour
         if (isDead) return;
 
         FaceToTarget();
-        ReduceHitPoints();
 
         if (isActive && !isDead) MinionAI();
     }
@@ -77,20 +76,17 @@ public class Minion : MonoBehaviour
         body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
-    void ReduceHitPoints()
+    public void ReduceHitPoints()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        hitPoints--;
+
+        if (hitPoints <= 0)
         {
-            hitPoints--;
+            isDead = true;
 
-            if (hitPoints <= 0)
-            {
-                isDead = true;
-
-                anim.SetBool("isRunning", false);
-                anim.SetBool("isAttacking", false);
-                anim.SetTrigger("Death");
-            }
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isAttacking", false);
+            anim.SetTrigger("Death");
         }
     }
 

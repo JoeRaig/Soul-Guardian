@@ -17,12 +17,6 @@ public class Obelisk : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
-    void Start()
-    {
-        
-    }
-
-
     void Update()
     {
         Attack();
