@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &249123763002754171
 Transform:
   m_ObjectHideFlags: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 249123763002754171}
+  deathVFX: {fileID: 6132441004771399450}
 --- !u!1001 &598716724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6132441005265249837, guid: 37890250844bed7498547b77935dde37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.566
+      value: -0.823
       objectReference: {fileID: 0}
     - target: {fileID: 6132441005265249837, guid: 37890250844bed7498547b77935dde37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -252,6 +253,11 @@ PrefabInstance:
 --- !u!4 &6132441004771399449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6132441005265249837, guid: 37890250844bed7498547b77935dde37, type: 3}
+  m_PrefabInstance: {fileID: 598716724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6132441004771399450 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6132441005265249838, guid: 37890250844bed7498547b77935dde37, type: 3}
   m_PrefabInstance: {fileID: 598716724}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &934685984

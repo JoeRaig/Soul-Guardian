@@ -4,6 +4,7 @@ using UnityEngine;
 public class Minion : MonoBehaviour
 {
     [SerializeField] Transform body;
+    [SerializeField] ParticleSystem deathVFX;
 
     Animator anim;
     Transform target;
@@ -11,6 +12,8 @@ public class Minion : MonoBehaviour
     bool isActive = false;
     float moveSpeed = 1f;
     float stopRange = 1f;
+    int hitPoints = 1;
+    bool isDead = false;
 
     void Awake()
     {
@@ -25,9 +28,12 @@ public class Minion : MonoBehaviour
 
     void Update()
     {
-        FaceToTarget();
+        if (isDead) return;
 
-        if (isActive) MinionAI();
+        FaceToTarget();
+        ReduceHitPoints();
+
+        if (isActive && !isDead) MinionAI();
     }
 
     IEnumerator InitializeMinion()
@@ -55,17 +61,47 @@ public class Minion : MonoBehaviour
 
     void Move()
     {
+        anim.SetBool("isAttacking", false);
         anim.SetBool("isRunning", true);
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
 
     void Attack()
     {
+        anim.SetBool("isRunning", false);
         anim.SetBool("isAttacking", true);
     }
 
     void FaceToTarget()
     {
         body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
+    }
+
+    void ReduceHitPoints()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            hitPoints--;
+
+            if (hitPoints <= 0)
+            {
+                isDead = true;
+
+                anim.SetBool("isRunning", false);
+                anim.SetBool("isAttacking", false);
+                anim.SetTrigger("Death");
+            }
+        }
+    }
+
+    void PlayDeathVFX()
+    {
+        deathVFX.Play();
+        Invoke("DestroyObject", 3f);
+    }
+
+    void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }
