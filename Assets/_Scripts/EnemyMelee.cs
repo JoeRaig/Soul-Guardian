@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyMelee : MonoBehaviour
 {
     [SerializeField] Transform body;
     [SerializeField] Transform[] attackPoints;
@@ -12,16 +12,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem deathVFX;
     [SerializeField] ParticleSystem impactVFX;
     [SerializeField] int minionAmount;
+    [SerializeField] int hitPoints = 3;
+    [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float chaseStopRange = 1.25f;
 
     Transform target;
     Animator anim;
     Health healthPlayerScript;
     Transform minionPool;
 
-    int hitPoints = 3;
-    float moveSpeed = 3f;
     bool isDead = false;
-    float chaseStopRange = 1.25f;
 
     void Awake()
     {

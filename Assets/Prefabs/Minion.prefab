@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &249123763002754171
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5682768, y: -0.10921277}
+  m_Offset: {x: 0, y: -0.10921277}
   serializedVersion: 2
   m_Radius: 0.11091739
 --- !u!114 &249123764434436312
@@ -277,11 +277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2240780123207951826, guid: 91ab36d4e5976b8478a863abbbac11bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.574
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2240780123207951826, guid: 91ab36d4e5976b8478a863abbbac11bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.072
+      value: -0.111
       objectReference: {fileID: 0}
     - target: {fileID: 2240780123207951826, guid: 91ab36d4e5976b8478a863abbbac11bf, type: 3}
       propertyPath: m_LocalPosition.z
