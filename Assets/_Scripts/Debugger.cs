@@ -14,7 +14,7 @@ public class Debugger : MonoBehaviour
 
     void InvokeMinion()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             Debug.Log("Invoking");
             Instantiate(minionPrefab, transform.position, Quaternion.identity, minionPool);

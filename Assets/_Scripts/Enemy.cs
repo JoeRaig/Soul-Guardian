@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject minionPrefab;
     [SerializeField] ParticleSystem deathVFX;
+    [SerializeField] ParticleSystem impactVFX;
     [SerializeField] int minionAmount;
 
     Transform target;
@@ -94,18 +95,24 @@ public class Enemy : MonoBehaviour
 
     void ReceiveDamage()
     {
+        InstantiateImpactVFX();
         hitPoints--;
 
         if (hitPoints <= 0)
         {
             isDead = true;
-           
+
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
 
             StartCoroutine(DeathSequence());
         }
+    }
+
+    void InstantiateImpactVFX()
+    {
+        Instantiate(impactVFX, transform.position, Quaternion.FromToRotation(transform.position, target.position), transform);
     }
 
     IEnumerator DeathSequence()

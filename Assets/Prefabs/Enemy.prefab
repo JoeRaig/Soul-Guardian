@@ -271,6 +271,7 @@ MonoBehaviour:
     m_Bits: 64
   minionPrefab: {fileID: 249123764434436307, guid: e8df6480b5d6b004a93f20a8f900981b, type: 3}
   deathVFX: {fileID: 5486446343404674062}
+  impactVFX: {fileID: 3454425208146815116, guid: 81d910c26268c8f4aab84b0195b68513, type: 3}
   minionAmount: 3
 --- !u!1 &8087385281870808262
 GameObject:
