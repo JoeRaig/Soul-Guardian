@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -15,6 +16,9 @@ public class Shooting : MonoBehaviour
     bool isFacingLeft = false;
     public bool IsFacingLeft { get => isFacingLeft; }
 
+    bool canShoot = true;
+    float shootDelay = 0.4f;
+
     void Awake()
     {
         Cursor.visible = false;
@@ -29,7 +33,11 @@ public class Shooting : MonoBehaviour
         RotateWeapon();
         CrosshairAim();
         FaceMouseDirection();
-        Shoot();
+
+        if (canShoot)
+        {
+            Shoot();
+        }
     }
 
     void FaceMouseDirection()
@@ -66,8 +74,17 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            bulletPrefab.transform.localScale = new Vector3(isFacingLeft ? -1 : 1, transform.localScale.y, transform.localScale.z);
-            Instantiate(bulletPrefab, weapon.transform.position, weapon.rotation);
+            canShoot = false;
+            StartCoroutine(ShootSequence());
         }
+    }
+
+    IEnumerator ShootSequence()
+    {
+        bulletPrefab.transform.localScale = new Vector3(isFacingLeft ? -1 : 1, transform.localScale.y, transform.localScale.z);
+        Instantiate(bulletPrefab, weapon.transform.position, weapon.rotation);
+
+        yield return new WaitForSeconds(shootDelay);
+        canShoot = true;
     }
 }

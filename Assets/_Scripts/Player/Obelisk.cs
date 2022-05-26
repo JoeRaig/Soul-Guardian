@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Obelisk : MonoBehaviour
@@ -10,6 +9,8 @@ public class Obelisk : MonoBehaviour
     Camera mainCamera;
 
     Vector2 aimPoint;
+    bool canShoot = true;
+    float shootDelay = 0.75f;
 
     void Awake()
     {
@@ -19,6 +20,8 @@ public class Obelisk : MonoBehaviour
 
     void Update()
     {
+        if (!canShoot) return;
+
         Attack();
     }
 
@@ -26,11 +29,18 @@ public class Obelisk : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            obeliskAnim.SetTrigger("Attack");
-
-            aimPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
-            Instantiate(strikePrefab, aimPoint, Quaternion.identity);
+            canShoot = false;
+            StartCoroutine(AttackSequence());
         }
+    }
+
+    IEnumerator AttackSequence()
+    {
+        obeliskAnim.SetTrigger("Attack");
+        aimPoint = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Instantiate(strikePrefab, aimPoint, Quaternion.identity);
+
+        yield return new WaitForSeconds(shootDelay);
+        canShoot = true;
     }
 }
