@@ -93,11 +93,6 @@ public class Minion : MonoBehaviour
     void PlayDeathVFX()
     {
         deathVFX.Play();
-        Invoke("DestroyObject", 3f);
-    }
-
-    void DestroyObject()
-    {
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
     }
 }

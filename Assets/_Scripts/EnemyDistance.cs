@@ -55,7 +55,7 @@ public class EnemyDistance : MonoBehaviour
         {
             if (!healthPlayerScript.PlayerIsDead)
             {
-                MeleeAnimation();
+                ShootAnimation();
             }
             else
             {
@@ -71,7 +71,7 @@ public class EnemyDistance : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
     }
 
-    void MeleeAnimation()
+    void ShootAnimation()
     {
         anim.SetBool("isRunning", false);
         anim.SetBool("isAttacking", true);

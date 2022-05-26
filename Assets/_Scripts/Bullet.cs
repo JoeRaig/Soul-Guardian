@@ -17,6 +17,6 @@ public class Bullet : MonoBehaviour
     {
         Vector3 direction = shootingScript.IsFacingLeft ? -transform.right : transform.right;
 
-        rb.velocity = direction * speed;
+        rb.AddForce(direction * speed, ForceMode2D.Impulse);
     }
 }

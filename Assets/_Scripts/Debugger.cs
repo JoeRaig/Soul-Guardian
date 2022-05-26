@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Debugger : MonoBehaviour
@@ -8,18 +6,19 @@ public class Debugger : MonoBehaviour
     [SerializeField] Transform minionPool;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform enemyPool;
+    [SerializeField] GameObject bulletPrefab;
 
     void Update()
     {
         InvokeMinion();
         InvokeEnemy();
+        InvokeBullet();
     }
 
     void InvokeMinion()
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Debug.Log("Invoking");
             Instantiate(minionPrefab, transform.position, Quaternion.identity, minionPool);
         }
     } 
@@ -28,8 +27,15 @@ public class Debugger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Debug.Log("Invoking");
             Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyPool);
+        }
+    }
+
+    void InvokeBullet()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         }
     }
 }
