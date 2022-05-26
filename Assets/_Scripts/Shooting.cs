@@ -10,7 +10,6 @@ public class Shooting : MonoBehaviour
     Health healthScript;
 
     Vector3 aimDirection;
-    float aimLength = 3f;
     float rotationZ;
 
     bool isFacingLeft = false;
@@ -18,6 +17,7 @@ public class Shooting : MonoBehaviour
 
     void Awake()
     {
+        Cursor.visible = false;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         healthScript = GetComponent<Health>();
     }
@@ -58,11 +58,8 @@ public class Shooting : MonoBehaviour
 
     void CrosshairAim()
     {
-        Vector3 aim = new Vector3(aimDirection.x, aimDirection.y, 0);
-
-        aim.Normalize();
-        aim *= aimLength;
-        crosshair.transform.localPosition = aim;
+        Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        crosshair.transform.position = mousePos;
     }
 
     void Shoot()
