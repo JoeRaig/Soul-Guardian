@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3610434847525486331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.092, y: 0.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4766775765068270351}
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4766775765789110758}
   shootPoint: {fileID: 3610434847525486324}
+  shootPrefab: {fileID: 7947751152084342900, guid: 5916a1ad72cc83d44b219048748a5976, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -146,7 +147,8 @@ MonoBehaviour:
   minionAmount: 2
   hitPoints: 3
   moveSpeed: 1
-  chaseStopRange: 3
+  chaseStopRange: 5
+  shotDelay: 5
   hideBodyDelay: 1.5
 --- !u!1 &4766775765789110759
 GameObject:
@@ -247,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9095321523623651617
 Transform:
   m_ObjectHideFlags: 0
@@ -256,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9095321523623651616}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.004, y: -0.123, z: -4.173275}
+  m_LocalPosition: {x: 0.004, y: -0.02, z: -4.173275}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4766775765068270351}

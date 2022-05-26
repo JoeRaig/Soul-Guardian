@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     Shooting shootingScript;
 
-    float speed = 25f;
+    float speed = 15f;
 
     void Awake()
     {
@@ -17,6 +17,6 @@ public class Bullet : MonoBehaviour
     {
         Vector3 direction = shootingScript.IsFacingLeft ? -transform.right : transform.right;
 
-        rb.AddForce(direction * speed, ForceMode2D.Impulse);
+        rb.AddForce(direction.normalized * speed, ForceMode2D.Impulse);
     }
 }

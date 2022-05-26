@@ -18,6 +18,6 @@ public class Shot : MonoBehaviour
         Vector2 direction = target.position - transform.position;
         transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
 
-        rb.velocity = direction.normalized * speed;
+        rb.AddForce(direction.normalized * speed, ForceMode2D.Impulse);
     }
 }

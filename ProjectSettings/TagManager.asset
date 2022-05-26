@@ -10,6 +10,7 @@ TagManager:
   - Obelisk
   - EnemyPool
   - MinionPool
+  - Shot
   layers:
   - Default
   - TransparentFX

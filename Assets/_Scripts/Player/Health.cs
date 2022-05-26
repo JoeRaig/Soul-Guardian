@@ -42,4 +42,13 @@ public class Health : MonoBehaviour
         weapon.SetActive(false);
         crosshair.SetActive(false);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Shot" && !playerIsDead)
+        {
+            Destroy(collision.gameObject);
+            ReduceHealth();
+        }
+    }
 }

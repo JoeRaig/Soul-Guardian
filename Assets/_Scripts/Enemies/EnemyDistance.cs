@@ -5,6 +5,7 @@ public class EnemyDistance : MonoBehaviour
 {
     [SerializeField] Transform body;
     [SerializeField] Transform shootPoint;
+    [SerializeField] Transform shootPrefab;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject minionPrefab;
     [SerializeField] ParticleSystem deathVFX;
@@ -13,6 +14,7 @@ public class EnemyDistance : MonoBehaviour
     [SerializeField] int hitPoints = 3;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 1.25f;
+    [SerializeField] float shotDelay = 3f;
     [SerializeField] float hideBodyDelay = 0.3f;
 
     Transform target;
@@ -21,6 +23,8 @@ public class EnemyDistance : MonoBehaviour
     Transform minionPool;
 
     bool isDead = false;
+    bool canShoot = false;
+    float timeNextShot;
 
     void Awake()
     {
@@ -30,10 +34,16 @@ public class EnemyDistance : MonoBehaviour
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
     }
 
+    void Start()
+    {
+        timeNextShot = shotDelay;   
+    }
+
     void Update()
     {
         if (isDead) return;
 
+        CalculateShootState();
         FaceToTarget();
         EnemyAI();
     }
@@ -43,23 +53,41 @@ public class EnemyDistance : MonoBehaviour
         body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
+    void CalculateShootState()
+    {
+        timeNextShot -= Time.deltaTime;
+
+        if (timeNextShot <= 0)
+        {
+            Debug.Log("Shot");
+            canShoot = true;
+            timeNextShot = shotDelay;
+        }
+    }
+
     void EnemyAI()
     {
-        float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
-        if (distanceToTarget > chaseStopRange && !isDead)
+        if (canShoot && !healthPlayerScript.PlayerIsDead)
         {
-            Move();
+            ShootAnimation();    
+        }
+        else if (healthPlayerScript.PlayerIsDead)
+        {
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isRunning", false);
         }
         else
         {
-            if (!healthPlayerScript.PlayerIsDead)
+            float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+            if (distanceToTarget > chaseStopRange && !isDead)
             {
-                ShootAnimation();
+                Move();
             }
             else
             {
                 anim.SetBool("isAttacking", false);
+                anim.SetBool("isRunning", false);
             }
         }
     }
@@ -81,7 +109,8 @@ public class EnemyDistance : MonoBehaviour
     {
         if (healthPlayerScript.PlayerIsDead) return;
 
-        
+        Instantiate(shootPrefab, shootPoint.position, Quaternion.identity);
+        canShoot = false;
     }
 
     void ReceiveDamage()
@@ -110,6 +139,7 @@ public class EnemyDistance : MonoBehaviour
     {
         if (deathVFX != null)
         {
+            deathVFX.gameObject.SetActive(true);
             yield return new WaitForSeconds(1.5f);
             deathVFX.Play();
         }
