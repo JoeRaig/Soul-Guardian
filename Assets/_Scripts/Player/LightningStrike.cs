@@ -14,11 +14,13 @@ public class LightningStrike : MonoBehaviour
 
     void Start()
     {
-        Invoke("AutoDestroy", 3f);  
+        Destroy(gameObject, 3f);  
     }
 
     void DealDamage()
     {
+        CameraShake.Instance.ShakeCamera(10f, 0.2f);
+
         // Set the contact filter to all object beloging to minionLayer
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
         filter.SetLayerMask(minionLayer);
@@ -32,10 +34,5 @@ public class LightningStrike : MonoBehaviour
         {
             item.GetComponent<Minion>().ReduceHitPoints();
         }
-    }
-
-    void AutoDestroy()
-    {
-        Destroy(gameObject);
     }
 }
