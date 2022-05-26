@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 8680089318177016274
     second: enemy_hit_1
+  - first:
+      213: -5353435173570432743
+    second: enemy_1_hit_0
+  - first:
+      213: -3577251183702374097
+    second: enemy_1_hit_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,43 +115,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_hit_0
+      name: enemy_1_hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51efa3ffd68c6c7a0800000000000000
-      internalID: -6357173449227829739
+      spriteID: 911b047c217c4b5b0800000000000000
+      internalID: -5353435173570432743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_hit_1
+      name: enemy_1_hit_1
       rect:
         serializedVersion: 2
         x: 126
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d98a9cee3fd57870800000000000000
-      internalID: 8680089318177016274
+      spriteID: f290313600d0b5ec0800000000000000
+      internalID: -3577251183702374097
       vertices: []
       indices: 
       edges: []

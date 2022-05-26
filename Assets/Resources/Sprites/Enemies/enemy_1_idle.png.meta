@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: 7260821335982513402
     second: enemy_idle_4
+  - first:
+      213: -6140344081471882182
+    second: enemy_1_idle_0
+  - first:
+      213: 7308321075308245977
+    second: enemy_1_idle_1
+  - first:
+      213: -1938234824422584765
+    second: enemy_1_idle_2
+  - first:
+      213: -3933989455932763240
+    second: enemy_1_idle_3
+  - first:
+      213: -8068180124736477594
+    second: enemy_1_idle_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,106 +133,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_idle_0
+      name: enemy_1_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c228df72431c07610800000000000000
-      internalID: 1617004695979393580
+      spriteID: a3c3231479d19caa0800000000000000
+      internalID: -6140344081471882182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_idle_1
+      name: enemy_1_idle_1
       rect:
         serializedVersion: 2
         x: 126
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6ba7ff517dce4cf0800000000000000
-      internalID: -266049441143215253
+      spriteID: 9d3bf3efb4f5c6560800000000000000
+      internalID: 7308321075308245977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_idle_2
+      name: enemy_1_idle_2
       rect:
         serializedVersion: 2
         x: 252
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9318dd62a7171390800000000000000
-      internalID: -7847777839274781794
+      spriteID: 34e000742b10a15e0800000000000000
+      internalID: -1938234824422584765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_idle_3
+      name: enemy_1_idle_3
       rect:
         serializedVersion: 2
         x: 378
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e4bcecbdf4b3f540800000000000000
-      internalID: 5040571409847071969
+      spriteID: 893def8de69a769c0800000000000000
+      internalID: -3933989455932763240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_idle_4
+      name: enemy_1_idle_4
       rect:
         serializedVersion: 2
         x: 504
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afc90dc198e93c460800000000000000
-      internalID: 7260821335982513402
+      spriteID: 66627317ce0180090800000000000000
+      internalID: -8068180124736477594
       vertices: []
       indices: 
       edges: []

@@ -26,6 +26,30 @@ TextureImporter:
   - first:
       213: -8633253997660558157
     second: enemy_run_7
+  - first:
+      213: -4303825988749353737
+    second: enemy_1_run_0
+  - first:
+      213: -1748529647066881678
+    second: enemy_1_run_1
+  - first:
+      213: -7026692472184670
+    second: enemy_1_run_2
+  - first:
+      213: -4227880334004363800
+    second: enemy_1_run_3
+  - first:
+      213: -5507849171734004486
+    second: enemy_1_run_4
+  - first:
+      213: -6885068027860206383
+    second: enemy_1_run_5
+  - first:
+      213: 7891152780980965592
+    second: enemy_1_run_6
+  - first:
+      213: 2833904371396013812
+    second: enemy_1_run_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,169 +151,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_run_0
+      name: enemy_1_run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d810be5530ec48c0800000000000000
-      internalID: -4013586648067467056
+      spriteID: 7fc108dd01db544c0800000000000000
+      internalID: -4303825988749353737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_1
+      name: enemy_1_run_1
       rect:
         serializedVersion: 2
         x: 126
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d43626b1697fc670800000000000000
-      internalID: 8561194877229348049
+      spriteID: 271e653dc89fbb7e0800000000000000
+      internalID: -1748529647066881678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_2
+      name: enemy_1_run_2
       rect:
         serializedVersion: 2
         x: 252
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce687537fc8cf99c0800000000000000
-      internalID: -3918192357470140692
+      spriteID: 2a0ef3ba24907eff0800000000000000
+      internalID: -7026692472184670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_3
+      name: enemy_1_run_3
       rect:
         serializedVersion: 2
         x: 378
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 075f66d1e4c994150800000000000000
-      internalID: 5857384649686709616
+      spriteID: 8ed5fca8c3d8355c0800000000000000
+      internalID: -4227880334004363800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_4
+      name: enemy_1_run_4
       rect:
         serializedVersion: 2
         x: 504
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70d1e01e7e6c97200800000000000000
-      internalID: 178392359473388807
+      spriteID: afc7d523c503093b0800000000000000
+      internalID: -5507849171734004486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_5
+      name: enemy_1_run_5
       rect:
         serializedVersion: 2
         x: 630
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6496451b982b0df80800000000000000
-      internalID: -8083765026674677434
+      spriteID: 1dc3ef87b135370a0800000000000000
+      internalID: -6885068027860206383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_6
+      name: enemy_1_run_6
       rect:
         serializedVersion: 2
         x: 756
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c649e6d23dd6bc0800000000000000
-      internalID: -3788139519466509224
+      spriteID: 8d0d4ba25a1038d60800000000000000
+      internalID: 7891152780980965592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_run_7
+      name: enemy_1_run_7
       rect:
         serializedVersion: 2
         x: 882
         y: 0
         width: 126
         height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.525, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bca8b5ea35803880800000000000000
-      internalID: -8633253997660558157
+      spriteID: 4fe6c78d20d045720800000000000000
+      internalID: 2833904371396013812
       vertices: []
       indices: 
       edges: []

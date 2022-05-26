@@ -273,6 +273,9 @@ MonoBehaviour:
   deathVFX: {fileID: 5486446343404674062}
   impactVFX: {fileID: 3454425208146815116, guid: 81d910c26268c8f4aab84b0195b68513, type: 3}
   minionAmount: 3
+  hitPoints: 3
+  moveSpeed: 3
+  chaseStopRange: 1.25
 --- !u!1 &8087385281870808262
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,8 +346,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 1617004695979393580, guid: 26339ce316b378e43a1c1af53f9ab2af, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: -6140344081471882182, guid: 26339ce316b378e43a1c1af53f9ab2af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -368,11 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354812490504583938, guid: f285432da4f4a6540bbc1dfb8c352fc0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.065
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 354812490504583938, guid: f285432da4f4a6540bbc1dfb8c352fc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.257
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 354812490504583938, guid: f285432da4f4a6540bbc1dfb8c352fc0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -416,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354812490504583949, guid: f285432da4f4a6540bbc1dfb8c352fc0, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f285432da4f4a6540bbc1dfb8c352fc0, type: 3}

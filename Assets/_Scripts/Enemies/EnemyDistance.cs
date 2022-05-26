@@ -59,7 +59,6 @@ public class EnemyDistance : MonoBehaviour
 
         if (timeNextShot <= 0)
         {
-            Debug.Log("Shot");
             canShoot = true;
             timeNextShot = shotDelay;
         }

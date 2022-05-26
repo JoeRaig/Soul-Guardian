@@ -47,6 +47,8 @@ public class Health : MonoBehaviour
     {
         if (collision.tag == "Shot" && !playerIsDead)
         {
+            CameraShake.Instance.ShakeCamera(5f, 0.1f);
+
             Destroy(collision.gameObject);
             ReduceHealth();
         }
