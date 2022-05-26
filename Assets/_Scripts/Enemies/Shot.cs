@@ -16,7 +16,6 @@ public class Shot : MonoBehaviour
     void Start()
     {
         Vector2 direction = target.position - transform.position;
-        transform.localScale = new Vector2(Mathf.Sign(direction.x), 1f);
 
         rb.AddForce(direction.normalized * speed, ForceMode2D.Impulse);
     }

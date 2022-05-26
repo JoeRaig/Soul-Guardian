@@ -6739,7 +6739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minionPrefab: {fileID: 249123764434436307, guid: e8df6480b5d6b004a93f20a8f900981b, type: 3}
   minionPool: {fileID: 593994680}
-  enemyPrefab: {fileID: 8087385281687780909, guid: ca0911981f5334d489c76489176f8b55, type: 3}
+  enemyPrefab: {fileID: 4766775765068270348, guid: c39d694d2a5db974291be6ca1a9c0243, type: 3}
   enemyPool: {fileID: 518408417}
   bulletPrefab: {fileID: 7947751152084342906, guid: 5916a1ad72cc83d44b219048748a5976, type: 3}
 --- !u!4 &1682297268
