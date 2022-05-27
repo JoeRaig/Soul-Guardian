@@ -21,6 +21,7 @@ public class EnemyMelee : MonoBehaviour
     Health healthPlayerScript;
     Transform minionPool;
 
+    bool isActive = false;
     bool isDead = false;
 
     void Awake()
@@ -31,12 +32,27 @@ public class EnemyMelee : MonoBehaviour
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
     }
 
+    void Start()
+    {
+        StartCoroutine(SummonEnemy());
+    }
+
     void Update()
     {
-        if (isDead) return;
+        if (isActive && !isDead)
+        {
+            FaceToTarget();
+            EnemyAI();
+        }
+    }
 
-        FaceToTarget();
-        EnemyAI();
+    IEnumerator SummonEnemy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        body.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.75f);
+        isActive = true;
     }
 
     void FaceToTarget()

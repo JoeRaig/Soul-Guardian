@@ -23,6 +23,7 @@ public class EnemyDistance : MonoBehaviour
     Transform minionPool;
     Transform bulletPool;
 
+    bool isActive = false;
     bool isDead = false;
     bool canShoot = false;
     float timeNextShot;
@@ -38,16 +39,27 @@ public class EnemyDistance : MonoBehaviour
 
     void Start()
     {
-        timeNextShot = shotDelay;   
+        timeNextShot = shotDelay;
+        StartCoroutine(SummonEnemy());
     }
 
     void Update()
     {
-        if (isDead) return;
+        if (isActive && !isDead)
+        {
+            CalculateShootState();
+            FaceToTarget();
+            EnemyAI();
+        }
+    }
 
-        CalculateShootState();
-        FaceToTarget();
-        EnemyAI();
+    IEnumerator SummonEnemy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        body.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.75f);
+        isActive = true;
     }
 
     void FaceToTarget()

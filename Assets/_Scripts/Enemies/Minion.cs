@@ -23,7 +23,7 @@ public class Minion : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(InitializeMinion());   
+        StartCoroutine(SummonMinion());   
     }
 
     void Update()
@@ -32,10 +32,10 @@ public class Minion : MonoBehaviour
 
         FaceToTarget();
 
-        if (isActive && !isDead) MinionAI();
+        if (isActive) MinionAI();
     }
 
-    IEnumerator InitializeMinion()
+    IEnumerator SummonMinion()
     {
         yield return new WaitForSeconds(0.5f);
         body.gameObject.SetActive(true);
