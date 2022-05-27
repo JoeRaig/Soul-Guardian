@@ -11,7 +11,7 @@ public class Minion : MonoBehaviour
 
     bool isActive = false;
     float moveSpeed = 1f;
-    float stopRange = 1f;
+    float stopRange = 1.5f;
     int hitPoints = 1;
     bool isDead = false;
 
