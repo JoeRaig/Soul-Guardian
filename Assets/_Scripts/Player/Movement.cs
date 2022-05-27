@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
-    float moveSpeed = 8f;
+    float moveSpeed = 6f;
     float xAxis;
     float yAxis;
     Vector2 moveDirection;

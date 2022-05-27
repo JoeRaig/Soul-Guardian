@@ -2,40 +2,39 @@ using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
-    [SerializeField] GameObject minionPrefab;
-    [SerializeField] Transform minionPool;
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject enemyPrefab1;
+    [SerializeField] GameObject enemyPrefab2;
+    [SerializeField] GameObject enemyPrefab3;
     [SerializeField] Transform enemyPool;
-    [SerializeField] GameObject bulletPrefab;
 
     void Update()
     {
-        InvokeMinion();
-        InvokeEnemy();
-        InvokeBullet();
+        InvokeThing1();
+        InvokeThing2();
+        InvokeThing3();
     }
 
-    void InvokeMinion()
+    void InvokeThing1()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Instantiate(minionPrefab, transform.position, Quaternion.identity, minionPool);
+            Instantiate(enemyPrefab1, transform.position, Quaternion.identity, enemyPool);
         }
     } 
     
-    void InvokeEnemy()
+    void InvokeThing2()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyPool);
+            Instantiate(enemyPrefab2, transform.position, Quaternion.identity, enemyPool);
         }
     }
 
-    void InvokeBullet()
+    void InvokeThing3()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Instantiate(enemyPrefab3, transform.position, Quaternion.identity, enemyPool);
         }
     }
 }

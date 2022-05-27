@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
 
     Camera mainCamera;
     Health healthScript;
+    Transform bulletPool;
 
     Vector3 aimDirection;
     float rotationZ;
@@ -17,13 +18,14 @@ public class Shooting : MonoBehaviour
     public bool IsFacingLeft { get => isFacingLeft; }
 
     bool canShoot = true;
-    float shootDelay = 0.4f;
+    float shootDelay = 0.25f;
 
     void Awake()
     {
         Cursor.visible = false;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         healthScript = GetComponent<Health>();
+        bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
     }
 
     void Update()
@@ -82,7 +84,7 @@ public class Shooting : MonoBehaviour
     IEnumerator ShootSequence()
     {
         bulletPrefab.transform.localScale = new Vector3(isFacingLeft ? -1 : 1, transform.localScale.y, transform.localScale.z);
-        Instantiate(bulletPrefab, weapon.transform.position, weapon.rotation);
+        Instantiate(bulletPrefab, weapon.transform.position, weapon.rotation, bulletPool);
 
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;

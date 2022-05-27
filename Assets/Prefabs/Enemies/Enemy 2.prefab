@@ -102,11 +102,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f65bb332762d69f409a8c2139c91b952, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!70 &3610434845884377821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 4766775765789110758}
   shootPoint: {fileID: 3610434847525486324}
-  shootPrefab: {fileID: 7947751152084342900, guid: 5916a1ad72cc83d44b219048748a5976, type: 3}
+  bulletPrefab: {fileID: 7947751152084342900, guid: 5916a1ad72cc83d44b219048748a5976, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

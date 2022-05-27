@@ -5,7 +5,7 @@ public class EnemyDistance : MonoBehaviour
 {
     [SerializeField] Transform body;
     [SerializeField] Transform shootPoint;
-    [SerializeField] Transform shootPrefab;
+    [SerializeField] Transform bulletPrefab;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject minionPrefab;
     [SerializeField] ParticleSystem deathVFX;
@@ -21,6 +21,7 @@ public class EnemyDistance : MonoBehaviour
     Animator anim;
     Health healthPlayerScript;
     Transform minionPool;
+    Transform bulletPool;
 
     bool isDead = false;
     bool canShoot = false;
@@ -32,6 +33,7 @@ public class EnemyDistance : MonoBehaviour
         anim = GetComponent<Animator>();
         healthPlayerScript = target.GetComponent<Health>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
+        bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
     }
 
     void Start()
@@ -108,7 +110,7 @@ public class EnemyDistance : MonoBehaviour
     {
         if (healthPlayerScript.PlayerIsDead) return;
 
-        Instantiate(shootPrefab, shootPoint.position, Quaternion.identity);
+        Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity, bulletPool);
         canShoot = false;
     }
 
