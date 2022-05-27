@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3523315717415911601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.88, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404519226263839667}
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7521174769888202543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 404519226263839667}
@@ -265,7 +265,7 @@ MonoBehaviour:
   - {fileID: 5581295592161741893}
   - {fileID: 6736250306998393758}
   - {fileID: 5361194525139887485}
-  attackRange: 1.226
+  attackRange: 1.21
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -275,7 +275,7 @@ MonoBehaviour:
   minionAmount: 3
   hitPoints: 3
   moveSpeed: 3
-  chaseStopRange: 2.5
+  chaseStopRange: 2.25
 --- !u!1 &8087385281870808262
 GameObject:
   m_ObjectHideFlags: 0
