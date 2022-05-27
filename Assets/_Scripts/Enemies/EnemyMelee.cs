@@ -5,7 +5,7 @@ public class EnemyMelee : MonoBehaviour
 {
     [SerializeField] Transform body;
     [SerializeField] Transform[] attackPoints;
-    [Range(0.1f, 1f)]
+    [Range(0.1f, 2f)]
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] LayerMask playerLayer;
     [SerializeField] GameObject minionPrefab;
@@ -14,7 +14,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] int minionAmount;
     [SerializeField] int hitPoints = 3;
     [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float chaseStopRange = 1.25f;
+    [SerializeField] float chaseStopRange = 2f;
 
     Transform target;
     Animator anim;
