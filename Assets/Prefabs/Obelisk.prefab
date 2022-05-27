@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 485541346679244536}
   - component: {fileID: 485541346679244484}
   - component: {fileID: 485541346679244485}
-  - component: {fileID: 485541346679244486}
+  - component: {fileID: 460793651694802714}
   - component: {fileID: 1720028684}
   m_Layer: 0
   m_Name: Obelisk
@@ -105,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 1361116931786564406, guid: b0ffa6e131c7f4141be6850ad48972f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -157,8 +157,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!68 &485541346679244486
-EdgeCollider2D:
+--- !u!70 &460793651694802714
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,18 +170,9 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.38761663, y: -1.6514904}
-  - {x: -0.03961277, y: -1.7844565}
-  - {x: -0.4498123, y: -1.6578494}
-  - {x: -0.03174615, y: -1.4713836}
-  - {x: 0.38374472, y: -1.6514903}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+  m_Offset: {x: 0.008335813, y: -0.014439705}
+  m_Size: {x: 1.0128709, y: 0.40720952}
+  m_Direction: 1
 --- !u!114 &1720028684
 MonoBehaviour:
   m_ObjectHideFlags: 0
