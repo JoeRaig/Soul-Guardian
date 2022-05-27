@@ -12,6 +12,7 @@ TagManager:
   - MinionPool
   - Shot
   - BulletPool
+  - Spawners
   layers:
   - Default
   - TransparentFX
