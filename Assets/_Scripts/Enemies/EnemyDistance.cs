@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class EnemyDistance : MonoBehaviour
 {
-    [SerializeField] Transform body;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject healthBar;
     [SerializeField] Transform shootPoint;
     [SerializeField] Transform bulletPrefab;
     [SerializeField] LayerMask playerLayer;
@@ -11,7 +12,6 @@ public class EnemyDistance : MonoBehaviour
     [SerializeField] ParticleSystem deathVFX;
     [SerializeField] ParticleSystem impactVFX;
     [SerializeField] int minionAmount;
-    [SerializeField] int hitPoints = 3;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 1.25f;
     [SerializeField] float shootRange = 10f;
@@ -21,6 +21,7 @@ public class EnemyDistance : MonoBehaviour
     Transform target;
     Animator anim;
     Health healthPlayerScript;
+    EnemyHealth enemyHealthScript;
     Transform minionPool;
     Transform bulletPool;
 
@@ -34,6 +35,7 @@ public class EnemyDistance : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
         healthPlayerScript = target.GetComponent<Health>();
+        enemyHealthScript = GetComponent<EnemyHealth>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
         bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
     }
@@ -57,7 +59,8 @@ public class EnemyDistance : MonoBehaviour
     IEnumerator SummonEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        body.gameObject.SetActive(true);
+        body.SetActive(true);
+        healthBar.SetActive(true);
 
         yield return new WaitForSeconds(0.75f);
         isActive = true;
@@ -65,7 +68,7 @@ public class EnemyDistance : MonoBehaviour
 
     void FaceToTarget()
     {
-        body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
+        body.transform.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
     void CalculateShootState()
@@ -134,11 +137,13 @@ public class EnemyDistance : MonoBehaviour
     void ReceiveDamage()
     {
         InstantiateImpactVFX();
-        hitPoints--;
+        enemyHealthScript.ReduceEnemyHealth();
 
-        if (hitPoints <= 0)
+        if (enemyHealthScript.HitPoints <= 0)
         {
             isDead = true;
+
+            healthBar.SetActive(false);
 
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
@@ -163,7 +168,7 @@ public class EnemyDistance : MonoBehaviour
         }
 
         yield return new WaitForSeconds(hideBodyDelay);
-        body.gameObject.SetActive(false);
+        body.SetActive(false);
 
         InvokeMinions();
 

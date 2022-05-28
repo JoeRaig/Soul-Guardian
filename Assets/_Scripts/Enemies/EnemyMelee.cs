@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
-    [SerializeField] Transform body;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject healthBar;
     [SerializeField] Transform[] attackPoints;
 
     [Range(0.1f, 2f)]
@@ -13,15 +14,14 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] ParticleSystem deathVFX;
     [SerializeField] ParticleSystem impactVFX;
     [SerializeField] int minionAmount;
-    [SerializeField] int hitPoints = 3;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 2f;
 
     Transform target;
     Animator anim;
     Health healthPlayerScript;
+    EnemyHealth enemyHealthScript;
     Transform minionPool;
-    Transform healthBarCanvas;
 
     bool isActive = false;
     bool isDead = false;
@@ -31,8 +31,8 @@ public class EnemyMelee : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
         healthPlayerScript = target.GetComponent<Health>();
+        enemyHealthScript = GetComponent<EnemyHealth>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
-        healthBarCanvas = GameObject.FindGameObjectWithTag("HealthBars").GetComponent<Transform>();
     }
 
     void Start()
@@ -53,7 +53,8 @@ public class EnemyMelee : MonoBehaviour
     IEnumerator SummonEnemy()
     {
         yield return new WaitForSeconds(0.5f);
-        body.gameObject.SetActive(true);
+        body.SetActive(true);
+        healthBar.SetActive(true);
 
         yield return new WaitForSeconds(0.75f);
         isActive = true;
@@ -61,7 +62,7 @@ public class EnemyMelee : MonoBehaviour
 
     void FaceToTarget()
     {
-        body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
+        body.transform.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
     void EnemyAI()
@@ -116,11 +117,13 @@ public class EnemyMelee : MonoBehaviour
     void ReceiveDamage()
     {
         InstantiateImpactVFX();
-        hitPoints--;
+        enemyHealthScript.ReduceEnemyHealth();
 
-        if (hitPoints <= 0)
+        if (enemyHealthScript.HitPoints <= 0)
         {
             isDead = true;
+
+            healthBar.SetActive(false);
 
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
@@ -141,7 +144,7 @@ public class EnemyMelee : MonoBehaviour
         deathVFX.Play();
 
         yield return new WaitForSeconds(0.3f);
-        body.gameObject.SetActive(false);
+        body.SetActive(false);
 
         InvokeMinions();
 

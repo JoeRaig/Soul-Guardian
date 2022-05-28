@@ -1,13 +1,28 @@
 fileFormatVersion: 2
-guid: 11190bd86d6f24a40a32a13ff2e2ade3
+guid: 566cc012247d16849bc31855175bfa5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7528070198318953935
-    second: health_bar_2_0
+      213: -2896921347153670617
+    second: health_bar_6_0
   - first:
-      213: -49289942486535827
-    second: health_bar_2_1
+      213: 4050011170580413127
+    second: health_bar_6_1
+  - first:
+      213: 2562828654918129635
+    second: health_bar_6_2
+  - first:
+      213: -8313486607425829183
+    second: health_bar_6_3
+  - first:
+      213: -1022965554122512397
+    second: health_bar_6_4
+  - first:
+      213: 4781711224787296196
+    second: health_bar_6_5
+  - first:
+      213: 5834839556514602826
+    second: health_bar_6_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 56
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,7 +124,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health_bar_2_0
+      name: health_bar_6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc5710fb5f3197860800000000000000
-      internalID: 7528070198318953935
+      spriteID: 72ec8a022611cc7d0800000000000000
+      internalID: -2896921347153670617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_bar_2_1
+      name: health_bar_6_1
       rect:
         serializedVersion: 2
         x: 50
@@ -144,8 +159,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d613717fe03e05ff0800000000000000
-      internalID: -49289942486535827
+      spriteID: 7ca3fc6a3b7843830800000000000000
+      internalID: 4050011170580413127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bar_6_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7569c451ff09320800000000000000
+      internalID: 2562828654918129635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bar_6_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c68a6f2aff80ac80800000000000000
+      internalID: -8313486607425829183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bar_6_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f721199f32bdc1f0800000000000000
+      internalID: -1022965554122512397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bar_6_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfd1fb360d0c5240800000000000000
+      internalID: 4781711224787296196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bar_6_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f537f89a389f050800000000000000
+      internalID: 5834839556514602826
       vertices: []
       indices: 
       edges: []
