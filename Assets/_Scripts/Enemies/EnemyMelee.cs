@@ -38,6 +38,7 @@ public class EnemyMelee : MonoBehaviour
     void Start()
     {
         StartCoroutine(SummonEnemy());
+        Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Update()

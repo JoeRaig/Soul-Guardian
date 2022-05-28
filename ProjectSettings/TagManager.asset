@@ -14,6 +14,7 @@ TagManager:
   - BulletPool
   - Spawners
   - ObeliskHealthBar
+  - PlayerHealthUI
   layers:
   - Default
   - TransparentFX

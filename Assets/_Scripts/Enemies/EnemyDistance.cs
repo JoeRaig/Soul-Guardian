@@ -44,6 +44,7 @@ public class EnemyDistance : MonoBehaviour
     {
         timeNextShot = shootDelay;
         StartCoroutine(SummonEnemy());
+        Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Update()
