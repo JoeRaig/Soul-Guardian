@@ -14,7 +14,8 @@ public class EnemyDistance : MonoBehaviour
     [SerializeField] int hitPoints = 3;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 1.25f;
-    [SerializeField] float shotDelay = 3f;
+    [SerializeField] float shootRange = 10f;
+    [SerializeField] float shootDelay = 3f;
     [SerializeField] float hideBodyDelay = 0.3f;
 
     Transform target;
@@ -39,7 +40,7 @@ public class EnemyDistance : MonoBehaviour
 
     void Start()
     {
-        timeNextShot = shotDelay;
+        timeNextShot = shootDelay;
         StartCoroutine(SummonEnemy());
     }
 
@@ -74,13 +75,19 @@ public class EnemyDistance : MonoBehaviour
         if (timeNextShot <= 0)
         {
             canShoot = true;
-            timeNextShot = shotDelay;
+            timeNextShot = shootDelay;
         }
     }
 
     void EnemyAI()
     {
-        if (canShoot && !healthPlayerScript.PlayerIsDead)
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        if (distanceToTarget > shootRange)
+        {
+            Move();
+        }
+        else if (canShoot && !healthPlayerScript.PlayerIsDead)
         {
             ShootAnimation();    
         }
@@ -91,8 +98,6 @@ public class EnemyDistance : MonoBehaviour
         }
         else
         {
-            float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
             if (distanceToTarget > chaseStopRange && !isDead)
             {
                 Move();

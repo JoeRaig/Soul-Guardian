@@ -16,10 +16,11 @@ public class SpawnManager : MonoBehaviour
     int waveNumber = 1;
 
     int enemyWaveCurrent = 0;
+    int enemyWaveIncremental = 1;
     int enemyWaveTotal = 2;
     
-    float spawnEnemyDelay = 2f;
-    float spawnWaveDelay = 5f;
+    float spawnEnemyDelay = 2.5f;
+    float spawnWaveDelay = 7f;
 
     void Awake()
     {
@@ -84,7 +85,11 @@ public class SpawnManager : MonoBehaviour
     void IncrementWave()
     {
         waveNumber++;
-        enemyWaveTotal++;
+        enemyWaveIncremental++;
+
+        if (enemyWaveIncremental % 2 == 0) enemyWaveTotal++;
+
+        Debug.Log(enemyWaveTotal);
     }
 
     GameObject GetRandomEnemyPrefab()
