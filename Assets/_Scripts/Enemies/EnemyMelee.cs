@@ -25,6 +25,7 @@ public class EnemyMelee : MonoBehaviour
 
     bool isActive = false;
     bool isDead = false;
+    bool recentlyHit = false;
 
     void Awake()
     {
@@ -108,11 +109,20 @@ public class EnemyMelee : MonoBehaviour
         {
             Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
 
-            if (hitPlayer != null && !healthPlayerScript.PlayerIsDead)
+            if (hitPlayer != null && !healthPlayerScript.PlayerIsDead && !recentlyHit)
             {
+                recentlyHit = true;
                 healthPlayerScript.ReduceHealth();
+
+                StartCoroutine(ResetHit());
             }
         }
+    }
+
+    IEnumerator ResetHit()
+    {
+        yield return new WaitForSeconds(0.4f);
+        recentlyHit = false;
     }
 
     void ReceiveDamage()
