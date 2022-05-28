@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -8,7 +8,18 @@ public class SpawnManager : MonoBehaviour
 
     Transform enemyPool;
     GameObject spawners;
-    Transform[] spawnPoints = new Transform[] { };
+    Transform[] spawnPoints = new Transform[10];
+
+    bool isGameStarted = false;
+
+    bool waveFinish = true;
+    int waveNumber = 1;
+
+    int enemyWaveCurrent = 0;
+    int enemyWaveTotal = 2;
+    
+    float spawnEnemyDelay = 2f;
+    float spawnWaveDelay = 5f;
 
     void Awake()
     {
@@ -19,18 +30,84 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         GetSpawnPoints();
-    }
 
-    void GetSpawnPoints()
-    {
-        foreach(Transform child in spawners.transform)
-        {
-            Debug.Log(child.transform.position);
-        }
+        // Refactor
+        isGameStarted = true; 
     }
 
     void Update()
     {
-        
+        if (isGameStarted)
+        {
+            if (waveFinish)
+            {
+                waveFinish = false;
+                StartCoroutine(StartNextWave());
+            }  
+        }
+    }
+
+    void GetSpawnPoints()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            spawnPoints[i] = spawners.transform.GetChild(i);
+        }
+    }
+
+    IEnumerator StartNextWave()
+    {
+        waveFinish = false;
+
+        yield return new WaitForSeconds(spawnWaveDelay);
+        StartCoroutine(SpawnWave());
+    }
+
+    IEnumerator SpawnWave()
+    {
+        Transform spawnSelected = SelectSpawnPoint();
+
+        while (enemyWaveCurrent < enemyWaveTotal) 
+        {
+            Instantiate(GetRandomEnemyPrefab(), spawnSelected.position, Quaternion.identity, enemyPool);
+            enemyWaveCurrent++;
+
+            yield return new WaitForSeconds(spawnEnemyDelay);
+        }
+
+        enemyWaveCurrent = 0;
+        IncrementWave();
+
+        waveFinish = true;   
+    }
+
+    void IncrementWave()
+    {
+        waveNumber++;
+        enemyWaveTotal++;
+    }
+
+    GameObject GetRandomEnemyPrefab()
+    {
+        int randomPrefab = Random.Range(0, 3);
+
+        switch(randomPrefab)
+        {
+            case 0:
+                return enemyPrefab1;
+            case 1:
+                return enemyPrefab2;
+            case 2:
+                return enemyPrefab3;
+            default:
+                return enemyPrefab1;
+        }
+    }
+
+    Transform SelectSpawnPoint()
+    {
+        int randomSpawn = Random.Range(0, 10);
+
+        return spawnPoints[randomSpawn];
     }
 }
