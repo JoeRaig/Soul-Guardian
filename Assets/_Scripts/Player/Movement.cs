@@ -24,8 +24,8 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        ProcessInputs();
         CheckIfMoving();
+        ProcessInputs();
         FaceMouseDirection();
     }
 

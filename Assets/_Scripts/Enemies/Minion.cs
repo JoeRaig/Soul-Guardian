@@ -7,18 +7,22 @@ public class Minion : MonoBehaviour
     [SerializeField] ParticleSystem deathVFX;
 
     Animator anim;
+    ObeliskHealth obeliskHealthScript;
     Transform target;
 
     bool isActive = false;
     float moveSpeed = 1f;
-    float stopRange = 3f;
+    float stopRange = 3.5f;
     int hitPoints = 1;
     bool isDead = false;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Obelisk").transform.GetChild(0).GetComponent<Transform>();
+
+        GameObject obelisk = GameObject.FindGameObjectWithTag("Obelisk");
+        obeliskHealthScript = obelisk.GetComponent<ObeliskHealth>();
+        target = obelisk.transform.GetChild(0).GetComponent<Transform>();
     }
 
     void Start()
@@ -42,6 +46,11 @@ public class Minion : MonoBehaviour
 
         yield return new WaitForSeconds(0.75f);
         isActive = true;
+    }
+
+    void FaceToTarget()
+    {
+        body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
     }
 
     void MinionAI()
@@ -71,12 +80,12 @@ public class Minion : MonoBehaviour
         anim.SetBool("isAttacking", true);
     }
 
-    void FaceToTarget()
+    public void InflictDamage()
     {
-        body.localScale = new Vector2(Mathf.Sign(target.position.x - transform.position.x), 1f);
+        obeliskHealthScript.CurrentHitPoints--;
     }
 
-    public void ReduceHitPoints()
+    public void ReceiveDamage()
     {
         hitPoints--;
 

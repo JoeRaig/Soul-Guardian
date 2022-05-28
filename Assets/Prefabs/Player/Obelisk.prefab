@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332447177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 0.081, z: 0}
+  m_LocalPosition: {x: 0.002, y: 0.108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 485541346679244487}
@@ -42,8 +42,9 @@ GameObject:
   - component: {fileID: 485541346679244536}
   - component: {fileID: 485541346679244484}
   - component: {fileID: 485541346679244485}
-  - component: {fileID: 1720028684}
   - component: {fileID: 7596147412184708278}
+  - component: {fileID: 1720028684}
+  - component: {fileID: 1797259199708441884}
   m_Layer: 0
   m_Name: Obelisk
   m_TagString: Obelisk
@@ -157,19 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1720028684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485541346679244537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e845e2edb7ec3d4894ca6ecaa540624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strikePrefab: {fileID: 3039602569175432402, guid: 44482fae407a2874fb82b54f991c03af, type: 3}
 --- !u!61 &7596147412184708278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196,3 +184,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2463648, y: 1.0446932}
   m_EdgeRadius: 0
+--- !u!114 &1720028684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485541346679244537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e845e2edb7ec3d4894ca6ecaa540624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strikePrefab: {fileID: 3039602569175432402, guid: 44482fae407a2874fb82b54f991c03af, type: 3}
+--- !u!114 &1797259199708441884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485541346679244537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf831ae8b429ec94aac12ecada0ffc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

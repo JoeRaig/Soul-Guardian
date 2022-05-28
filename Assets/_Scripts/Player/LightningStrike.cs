@@ -32,7 +32,7 @@ public class LightningStrike : MonoBehaviour
 
         foreach (var item in minionsInRange)
         {
-            item.GetComponent<Minion>().ReduceHitPoints();
+            item.GetComponent<Minion>().ReceiveDamage();
         }
     }
 }
