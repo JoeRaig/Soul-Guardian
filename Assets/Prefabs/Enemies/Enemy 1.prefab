@@ -266,6 +266,7 @@ MonoBehaviour:
   - {fileID: 5581295592161741893}
   - {fileID: 6736250306998393758}
   - {fileID: 5361194525139887485}
+  healthBar: {fileID: 4631576114663533140, guid: f7e9d9824bbafb947a2774740dd5f509, type: 3}
   attackRange: 1.21
   playerLayer:
     serializedVersion: 2

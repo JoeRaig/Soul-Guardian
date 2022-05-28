@@ -5,6 +5,7 @@ public class EnemyMelee : MonoBehaviour
 {
     [SerializeField] Transform body;
     [SerializeField] Transform[] attackPoints;
+
     [Range(0.1f, 2f)]
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] LayerMask playerLayer;
@@ -20,6 +21,7 @@ public class EnemyMelee : MonoBehaviour
     Animator anim;
     Health healthPlayerScript;
     Transform minionPool;
+    Transform healthBarCanvas;
 
     bool isActive = false;
     bool isDead = false;
@@ -30,6 +32,7 @@ public class EnemyMelee : MonoBehaviour
         anim = GetComponent<Animator>();
         healthPlayerScript = target.GetComponent<Health>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
+        healthBarCanvas = GameObject.FindGameObjectWithTag("HealthBars").GetComponent<Transform>();
     }
 
     void Start()
@@ -39,6 +42,7 @@ public class EnemyMelee : MonoBehaviour
 
     void Update()
     {
+
         if (isActive && !isDead)
         {
             FaceToTarget();
