@@ -20,6 +20,8 @@ public class Shooting : MonoBehaviour
     public bool IsFacingLeft { get => isFacingLeft; }
 
     bool canShoot = true;
+    public bool CanShoot { get => canShoot; set => canShoot = value; }
+
     float shootDelay = 0.25f;
 
     void Awake()

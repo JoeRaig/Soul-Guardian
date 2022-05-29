@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        SkipIntro();
         RestartGame();
     }
 
@@ -47,8 +48,14 @@ public class GameManager : MonoBehaviour
 
     public void SkipIntro()
     {
-        isGameStarted = true;
-        LoadGame();
+        if (SceneManager.GetActiveScene().buildIndex != 1) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Skipping intro");
+            //isGameStarted = true;
+            //LoadGame();
+        }
     }
 
     public void RestartGame()

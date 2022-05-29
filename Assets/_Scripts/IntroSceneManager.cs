@@ -13,6 +13,16 @@ public class IntroSceneManager : MonoBehaviour
     MusicManager mm;
     GameObject player;
 
+    bool isDialogTime = false;
+
+    int introTextIndex = 0;
+    string[] introTexts = new string[] {
+        "No puede ser...han vuelto",
+        "Han pasado cinco años desde la ultima vez que sentí este temblor",
+        "No permitiré que se lleven las almas del bosque",
+        "Debo llegar rápido al monolito...",
+    }; 
+    
     void Awake()
     {
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
@@ -22,11 +32,16 @@ public class IntroSceneManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(StartIntro());
-        UpdateInfoText("");
+        StartCoroutine(StartIntro1());
+        UpdateInfoText();
     }
 
-    IEnumerator StartIntro()
+    void Update()
+    {
+        NextText();
+    }
+
+    IEnumerator StartIntro1()
     {
         yield return new WaitForSeconds(1f);
         sm.PlayOneShot(introSFX, 0.75f);
@@ -45,14 +60,38 @@ public class IntroSceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         infoPanel.SetActive(true);
-        UpdateInfoText("What was that?!?!");
-        
-        
-        //player.GetComponent<Movement>().enabled = true;
+        isDialogTime = true;
     }
 
-    void UpdateInfoText(string text)
+    void NextText()
     {
-        infoText.text = text;
+        if (Input.GetKeyDown(KeyCode.Space) && isDialogTime)
+        {
+            if (introTextIndex != 3)
+            {
+                introTextIndex++;
+                UpdateInfoText();
+            }
+            else
+            {
+                isDialogTime = false;
+                infoPanel.SetActive(false);
+                ChangeStatePlayerComponents();   
+            }
+        }
+    }
+
+    void UpdateInfoText()
+    {
+        infoText.text = introTexts[introTextIndex];
+    }
+
+    void ChangeStatePlayerComponents()
+    {
+        player.GetComponent<Movement>().enabled = true;
+        var shootScript = player.GetComponent<Shooting>();
+        shootScript.enabled = true;
+        shootScript.CanShoot = false;
+        player.transform.Find("Crosshair").gameObject.SetActive(true);
     }
 }
