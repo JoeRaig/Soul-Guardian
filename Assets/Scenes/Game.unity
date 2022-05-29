@@ -859,10 +859,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFX Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1527136974095519118, guid: 7d62c554afe87e649b6b3baad0a5d31f, type: 3}
-      propertyPath: m_TagString
-      value: SFXManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d62c554afe87e649b6b3baad0a5d31f, type: 3}
 --- !u!1001 &2222256834909204664
@@ -933,10 +929,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1380734821}
     m_Modifications:
-    - target: {fileID: 1296307668, guid: cc544dcfb532efc4d82282c95cb62a5a, type: 3}
-      propertyPath: shootSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: d954b09599bcade4788dafa4c5ecc276, type: 3}
     - target: {fileID: 2726211044972296231, guid: cc544dcfb532efc4d82282c95cb62a5a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1168,10 +1160,6 @@ PrefabInstance:
     - target: {fileID: 6917892116387313297, guid: e2fda7494075f0c4681e015f09f7c87f, type: 3}
       propertyPath: m_Name
       value: Music Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917892116387313297, guid: e2fda7494075f0c4681e015f09f7c87f, type: 3}
-      propertyPath: m_TagString
-      value: MusicManager
       objectReference: {fileID: 0}
     - target: {fileID: 6917892116387313298, guid: e2fda7494075f0c4681e015f09f7c87f, type: 3}
       propertyPath: m_RootOrder

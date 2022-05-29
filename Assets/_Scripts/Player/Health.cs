@@ -5,10 +5,14 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject weapon;
     [SerializeField] GameObject crosshair;
     [SerializeField] GameObject hitPointImage;
+    [SerializeField] AudioClip hitSFX;
+    [SerializeField] AudioClip gameOverMusic;
 
     Animator anim;
     Camera mainCamera;
     GameObject playerHealthUI;
+    MusicManager mm;
+    SFXManager sm;
 
     int hitPoints = 5;
     bool playerIsDead = false;
@@ -19,6 +23,8 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         playerHealthUI = GameObject.FindGameObjectWithTag("PlayerHealthUI");
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+        mm = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
     }
 
     void Start()
@@ -39,6 +45,9 @@ public class Health : MonoBehaviour
 
     public void ReduceHealth()
     {
+
+        sm.PlayOneShot(hitSFX, 0.75f);
+
         anim.SetTrigger("Hit");
 
         Destroy(playerHealthUI.transform.GetChild(hitPoints - 1).gameObject);
@@ -47,6 +56,8 @@ public class Health : MonoBehaviour
 
         if (hitPoints <= 0)
         {
+            mm.PlaySound(gameOverMusic);
+
             Death();
             DisablePlayerFunctionality();
         }

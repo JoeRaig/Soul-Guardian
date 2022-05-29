@@ -4,12 +4,19 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] SpriteRenderer healthBarSprite;
     [SerializeField] int hitPoints = 3;
+    [SerializeField] AudioClip enemyHitSFX;
     public int HitPoints { get => hitPoints; }
 
     Sprite[] sprites;
+    SFXManager sm;
 
     int spriteTotalHitPoints;
     int displayIndex = 0;
+
+    void Awake()
+    {
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+    }
 
     void Start()
     {
@@ -29,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void ReduceEnemyHealth()
     {
+        sm.PlayOneShot(enemyHitSFX, 0.5f);
+
         hitPoints--;
         displayIndex++;
     }

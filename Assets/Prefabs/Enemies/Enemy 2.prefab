@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarSprite: {fileID: 6050147882951694118}
   hitPoints: 3
+  enemyHitSFX: {fileID: 8300000, guid: 23983b74057d661408518aab419b5dae, type: 3}
 --- !u!1 &4766775765789110759
 GameObject:
   m_ObjectHideFlags: 0
