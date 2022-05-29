@@ -6,6 +6,7 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] GameObject body;
     [SerializeField] GameObject healthBar;
     [SerializeField] Transform[] attackPoints;
+    [SerializeField] AudioClip attackSFX;
 
     [Range(0.1f, 2f)]
     [SerializeField] float attackRange = 0.5f;
@@ -16,12 +17,13 @@ public class EnemyMelee : MonoBehaviour
     [SerializeField] int minionAmount;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 2f;
-
+    
     Transform target;
     Animator anim;
     Health healthPlayerScript;
     EnemyHealth enemyHealthScript;
     Transform minionPool;
+    SFXManager sm;
 
     bool isActive = false;
     bool isDead = false;
@@ -34,6 +36,7 @@ public class EnemyMelee : MonoBehaviour
         healthPlayerScript = target.GetComponent<Health>();
         enemyHealthScript = GetComponent<EnemyHealth>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
     }
 
     void Start()
@@ -192,5 +195,10 @@ public class EnemyMelee : MonoBehaviour
         {
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
+    }
+
+    void PlayAttackSFX()
+    {
+        sm.PlayOneShot(attackSFX, 0.5f);
     }
 }

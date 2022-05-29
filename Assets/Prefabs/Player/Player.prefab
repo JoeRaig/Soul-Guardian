@@ -139,7 +139,7 @@ MonoBehaviour:
   weapon: {fileID: 5373767046630536543}
   crosshair: {fileID: 2726211045163759068}
   hitPointImage: {fileID: 6497300173892556711, guid: 1827652cbd525fe459d2b180b5db41c6, type: 3}
-  hitSFX: {fileID: 8300000, guid: f2c28b4267d0aef49b2d5d60e5107694, type: 3}
+  hitSFX: {fileID: 8300000, guid: 59668e068c76f2b43ba46b617ca1e79e, type: 3}
   gameOverMusic: {fileID: 8300000, guid: 7f79459869266a449aa72658aa3e314b, type: 3}
 --- !u!1 &2726211045163759068
 GameObject:

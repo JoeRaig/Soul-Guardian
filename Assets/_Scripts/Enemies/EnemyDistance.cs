@@ -11,19 +11,21 @@ public class EnemyDistance : MonoBehaviour
     [SerializeField] GameObject minionPrefab;
     [SerializeField] ParticleSystem deathVFX;
     [SerializeField] ParticleSystem impactVFX;
+    [SerializeField] AudioClip shootSFX;
     [SerializeField] int minionAmount;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float chaseStopRange = 1.25f;
     [SerializeField] float shootRange = 10f;
     [SerializeField] float shootDelay = 3f;
     [SerializeField] float hideBodyDelay = 0.3f;
-
+    
     Transform target;
     Animator anim;
     Health healthPlayerScript;
     EnemyHealth enemyHealthScript;
     Transform minionPool;
     Transform bulletPool;
+    SFXManager sm;
 
     bool isActive = false;
     bool isDead = false;
@@ -38,6 +40,7 @@ public class EnemyDistance : MonoBehaviour
         enemyHealthScript = GetComponent<EnemyHealth>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
         bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
     }
 
     void Start()
@@ -195,5 +198,10 @@ public class EnemyDistance : MonoBehaviour
             ReceiveDamage();
             Destroy(collision.gameObject);
         }
+    }
+
+    void PlayShootSFX()
+    {
+        sm.PlayOneShot(shootSFX, 0.8f);
     }
 }

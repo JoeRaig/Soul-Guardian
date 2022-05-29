@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strikePrefab: {fileID: 3039602569175432402, guid: 44482fae407a2874fb82b54f991c03af, type: 3}
+  shootSFX: {fileID: 8300000, guid: 15318c446416c7f4ab728ffe1ac6dff5, type: 3}
 --- !u!114 &1797259199708441884
 MonoBehaviour:
   m_ObjectHideFlags: 0

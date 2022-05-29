@@ -148,6 +148,7 @@ MonoBehaviour:
   minionPrefab: {fileID: 249123764434436307, guid: e8df6480b5d6b004a93f20a8f900981b, type: 3}
   deathVFX: {fileID: 0}
   impactVFX: {fileID: 3454425208146815116, guid: 81d910c26268c8f4aab84b0195b68513, type: 3}
+  shootSFX: {fileID: 8300000, guid: f12d779e13e35324c909c5f98b757b70, type: 3}
   minionAmount: 1
   moveSpeed: 1
   chaseStopRange: 5
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarSprite: {fileID: 6050147882951694118}
   hitPoints: 3
-  enemyHitSFX: {fileID: 8300000, guid: 23983b74057d661408518aab419b5dae, type: 3}
+  enemyHitSFX: {fileID: 8300000, guid: 03d80bf258e11644cacb1a58cf35c6e6, type: 3}
 --- !u!1 &4766775765789110759
 GameObject:
   m_ObjectHideFlags: 0

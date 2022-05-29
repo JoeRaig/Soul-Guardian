@@ -269,6 +269,7 @@ MonoBehaviour:
   - {fileID: 5581295592161741893}
   - {fileID: 6736250306998393758}
   - {fileID: 5361194525139887485}
+  attackSFX: {fileID: 8300000, guid: 29f11e82ee13d9343b5f7ccf138fe93f, type: 3}
   attackRange: 1.3
   playerLayer:
     serializedVersion: 2
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBarSprite: {fileID: 2715617009545037553}
   hitPoints: 5
-  enemyHitSFX: {fileID: 8300000, guid: 23983b74057d661408518aab419b5dae, type: 3}
+  enemyHitSFX: {fileID: 8300000, guid: 03d80bf258e11644cacb1a58cf35c6e6, type: 3}
 --- !u!1 &8087385281870808262
 GameObject:
   m_ObjectHideFlags: 0

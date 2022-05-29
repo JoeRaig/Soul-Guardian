@@ -52,6 +52,8 @@ public class Health : MonoBehaviour
 
         Destroy(playerHealthUI.transform.GetChild(hitPoints - 1).gameObject);
 
+        CameraShake.Instance.ShakeCamera(10f, 0.1f);
+
         hitPoints--;
 
         if (hitPoints <= 0)
@@ -82,8 +84,6 @@ public class Health : MonoBehaviour
     {
         if (collision.tag == "Shot" && !playerIsDead)
         {
-            CameraShake.Instance.ShakeCamera(5f, 0.1f);
-
             Destroy(collision.gameObject);
             ReduceHealth();
         }
