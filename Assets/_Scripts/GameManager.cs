@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] AudioClip buttonSFX;
     [SerializeField] AudioClip mainMenuSong;
-    [SerializeField] AudioClip introSong;
     [SerializeField] AudioClip combatSong;
 
     public static GameManager instance;
@@ -30,14 +29,34 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        RestartGame();
     }
 
-    public void Loadgame()
+    public void LoadIntroScene()
     {
+        mm.StopAudio();
         sm.PlayOneShot(buttonSFX);
-        mm.PlaySound(introSong);
+
+        SceneManager.LoadScene("Intro");
+    }
+
+    public void LoadGame()
+    {
         SceneManager.LoadScene("Game");
+    }
+
+    public void SkipIntro()
+    {
+        isGameStarted = true;
+        LoadGame();
+    }
+
+    public void RestartGame()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && isGameStarted)
+        {
+            SceneManager.LoadScene("Game");
+        }
     }
 
     public void ShowSettings()
