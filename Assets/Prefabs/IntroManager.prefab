@@ -45,8 +45,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 30.000004, y: 14}
+  m_Offset: {x: 1.5717764, y: -1.730781}
+  m_Size: {x: 26.707884, y: 15.800379}
   m_Direction: 1
 --- !u!114 &7092583135531983908
 MonoBehaviour:
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoPanel: {fileID: 0}
+  indicatorPanel: {fileID: 0}
   infoText: {fileID: 0}
   introSFX: {fileID: 8300000, guid: 651950905f227724d918427f8b363eb1, type: 3}
   introSong: {fileID: 8300000, guid: 23d0f53fbbab4a340ad64f276be19733, type: 3}

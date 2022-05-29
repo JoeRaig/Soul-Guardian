@@ -62,4 +62,10 @@ public class Movement : MonoBehaviour
     {
         body.localScale = new Vector2(Mathf.Sign(aimDirection.x), 1f);
     }
+
+    public void StopPlayer()
+    {
+        rb.velocity = Vector2.zero;
+        anim.SetBool("isRunning", false);
+    }
 }

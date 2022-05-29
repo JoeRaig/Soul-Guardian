@@ -5,29 +5,41 @@ using UnityEngine;
 public class IntroSceneManager : MonoBehaviour
 {
     [SerializeField] GameObject infoPanel;
+    [SerializeField] GameObject indicatorPanel;
+    [SerializeField] TextMeshProUGUI indicatorText;
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] AudioClip introSFX;
     [SerializeField] AudioClip introSong;
+    [SerializeField] GameObject playerWeapon;
 
     SFXManager sm;
     MusicManager mm;
     GameObject player;
+    Movement movement;
+    Shooting shooting;
 
     bool isDialogTime = false;
+    bool isIntro2Started = false;
 
     int introTextIndex = 0;
-    string[] introTexts = new string[] {
-        "No puede ser...han vuelto",
-        "Han pasado cinco años desde la ultima vez que sentí este temblor",
-        "No permitiré que se lleven las almas del bosque",
+    string[] introTexts1 = new string[] {
+        "Ese estruendo...Han pasado cinco años desde la ultima batalla",
+        "Lo han vuelto a encontrar...",
+        "No permitiré que se lleven las almas",
         "Debo llegar rápido al monolito...",
-    }; 
+        "¡Un explorador! Maldita sea, se me han adelantado",
+        "No me ha visto, debe estar en trance mientras transmite la localizacion",
+        "Acabaré con él a distancia con mi bastón, quizá aún no sea demasiado tarde",
+        "",
+    };
     
     void Awake()
     {
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
         mm = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         player = GameObject.FindGameObjectWithTag("Player");
+        movement = player.GetComponent<Movement>();
+        shooting = player.GetComponent<Shooting>();
     }
 
     void Start()
@@ -69,39 +81,94 @@ public class IntroSceneManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isDialogTime)
         {
-            if (introTextIndex != 3)
+            if (introTextIndex == 3)
             {
-                introTextIndex++;
-                UpdateInfoText();
+                IncrementText();
+                isDialogTime = false;
+                infoPanel.SetActive(false);
+                ChangeStatePlayerComponents();
+
+                StartCoroutine(FirstIndicatorPanel());
+            }
+            else if(introTextIndex == 6)
+            {
+                IncrementText();
+                isDialogTime = false;
+                infoPanel.SetActive(false);
+
+                movement.enabled = true;
+                shooting.enabled = true;
+                shooting.CanShoot = true;
+                playerWeapon.SetActive(true);
+
+                StartCoroutine(SecondIndicatorPanel());
             }
             else
             {
-                isDialogTime = false;
-                infoPanel.SetActive(false);
-                ChangeStatePlayerComponents();   
+                IncrementText();
             }
         }
     }
 
+    void IncrementText()
+    {
+        introTextIndex++;
+        UpdateInfoText();
+    }
+
     void UpdateInfoText()
     {
-        infoText.text = introTexts[introTextIndex];
+        infoText.text = introTexts1[introTextIndex];
     }
 
     void ChangeStatePlayerComponents()
     {
-        player.GetComponent<Movement>().enabled = true;
-        var shootScript = player.GetComponent<Shooting>();
-        shootScript.enabled = true;
-        shootScript.CanShoot = false;
+        movement.enabled = true;
+        shooting.enabled = true;
+        shooting.CanShoot = false;
         player.transform.Find("Crosshair").gameObject.SetActive(true);
     }
+
+    
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Activate intro 2");
+            Debug.Log("Activate it!");
+            if (!isIntro2Started)
+            {
+                StartCoroutine(StartIntro2());
+            }
         }
+    }
+
+    IEnumerator StartIntro2()
+    {
+        isIntro2Started = true;
+        indicatorPanel.SetActive(false);
+        infoPanel.SetActive(true);
+        isDialogTime = true;
+        movement.StopPlayer();
+        movement.enabled = false;
+
+        yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator FirstIndicatorPanel()
+    {
+        yield return new WaitForSeconds(1.5f);
+        indicatorPanel.SetActive(true);
+
+        yield return new WaitForSeconds(10f);
+        indicatorPanel.SetActive(false);
+    }
+
+    IEnumerator SecondIndicatorPanel()
+    {
+        indicatorText.text = "CAST - LEFT MOUSE CLICK";
+
+        yield return new WaitForSeconds(1.5f);
+        indicatorPanel.SetActive(true);
     }
 }

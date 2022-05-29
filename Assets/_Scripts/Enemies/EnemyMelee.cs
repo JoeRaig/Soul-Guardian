@@ -47,7 +47,6 @@ public class EnemyMelee : MonoBehaviour
 
     void Update()
     {
-
         if (isActive && !isDead)
         {
             FaceToTarget();

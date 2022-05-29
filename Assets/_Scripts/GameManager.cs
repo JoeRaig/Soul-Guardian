@@ -66,12 +66,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShowSettings()
-    {
-        sm.PlayOneShot(buttonSFX);
-        Debug.Log("Settings");
-    }
-
     public void QuitGame()
     {
         sm.PlayOneShot(buttonSFX);
