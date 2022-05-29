@@ -966,14 +966,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7032952729714383963, guid: cc544dcfb532efc4d82282c95cb62a5a, type: 3}
-      propertyPath: hitPointImage
-      value: 
-      objectReference: {fileID: 6497300173892556711, guid: 1827652cbd525fe459d2b180b5db41c6, type: 3}
-    - target: {fileID: 7032952729714383963, guid: cc544dcfb532efc4d82282c95cb62a5a, type: 3}
-      propertyPath: playerHitPointPrefab
-      value: 
-      objectReference: {fileID: 6497300173892556711, guid: 1827652cbd525fe459d2b180b5db41c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc544dcfb532efc4d82282c95cb62a5a, type: 3}
 --- !u!1001 &3240909843923604651
