@@ -6,10 +6,12 @@ public class Shooting : MonoBehaviour
     [SerializeField] Transform weapon;
     [SerializeField] GameObject crosshair;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] AudioClip shootSFX;
 
     Camera mainCamera;
     Health healthScript;
     Transform bulletPool;
+    SFXManager sm;
 
     Vector3 aimDirection;
     float rotationZ;
@@ -26,6 +28,7 @@ public class Shooting : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         healthScript = GetComponent<Health>();
         bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
     }
 
     void Update()
@@ -83,6 +86,8 @@ public class Shooting : MonoBehaviour
 
     IEnumerator ShootSequence()
     {
+        sm.PlayOneShot(shootSFX);
+
         bulletPrefab.transform.localScale = new Vector3(isFacingLeft ? -1 : 1, transform.localScale.y, transform.localScale.z);
         Instantiate(bulletPrefab, weapon.transform.position, weapon.rotation, bulletPool);
 

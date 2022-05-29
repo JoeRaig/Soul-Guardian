@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class LightningStrike : MonoBehaviour
 {
-    public LayerMask minionLayer;
-    CapsuleCollider2D capsuleCollider;
+    [SerializeField] AudioClip sfx;
 
+    CapsuleCollider2D capsuleCollider;
+    SFXManager sm;
+
+    public LayerMask minionLayer;
+    
     void Awake()
     {
-        capsuleCollider = GetComponent<CapsuleCollider2D>();   
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
     }
 
     void Start()
@@ -20,6 +25,8 @@ public class LightningStrike : MonoBehaviour
     void DealDamage()
     {
         CameraShake.Instance.ShakeCamera(10f, 0.2f);
+
+        sm.PlayOneShot(sfx, 0.25f);
 
         // Set the contact filter to all object beloging to minionLayer
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
