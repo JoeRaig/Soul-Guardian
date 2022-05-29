@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] AudioClip buttonSFX;
+    [SerializeField] AudioClip mainMenuSong;
+    [SerializeField] AudioClip introSong;
+    [SerializeField] AudioClip combatSong;
 
     public static GameManager instance;
 
     SFXManager sm;
+    MusicManager mm;
 
     bool isGameStarted = false;
 
@@ -18,11 +20,12 @@ public class GameManager : MonoBehaviour
         SingletonMe();
 
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+        mm = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
     }
 
     void Start()
     {
-        
+        mm.PlaySound(mainMenuSong);
     }
 
     void Update()
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void Loadgame()
     {
         sm.PlayOneShot(buttonSFX);
+        mm.PlaySound(introSong);
         SceneManager.LoadScene("Game");
     }
 

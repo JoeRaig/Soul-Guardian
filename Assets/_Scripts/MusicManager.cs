@@ -29,13 +29,6 @@ public class MusicManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void PlayOneShot(AudioClip audioClip, float volume = 1)
-    {
-        if (audioSource.enabled == false) { return; }
-
-        audioSource.PlayOneShot(audioClip, volume);
-    }
-
     void SingletonMe()
     {
         if (instance != null && instance != this)
