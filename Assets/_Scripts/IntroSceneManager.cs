@@ -96,4 +96,12 @@ public class IntroSceneManager : MonoBehaviour
         shootScript.CanShoot = false;
         player.transform.Find("Crosshair").gameObject.SetActive(true);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Debug.Log("Activate intro 2");
+        }
+    }
 }
