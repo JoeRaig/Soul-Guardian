@@ -11,8 +11,7 @@ public class ObeliskHealth : MonoBehaviour
     int currentHitPoints = 0;
     public int CurrentHitPoints { get => currentHitPoints; set => currentHitPoints = value; }
 
-    Color initialcolor;
-
+    
     void Awake()
     {
         obeliskHealthBar = GameObject.Find("ObeliskHealthBar").GetComponent<Slider>();
@@ -21,7 +20,6 @@ public class ObeliskHealth : MonoBehaviour
     void Start()
     {
         currentHitPoints = initialHitPoints;
-        initialcolor = fillArea.color;
 
         DisplaySlider();
     }
@@ -34,10 +32,5 @@ public class ObeliskHealth : MonoBehaviour
     void DisplaySlider()
     {
         obeliskHealthBar.value = currentHitPoints * 0.001f;
-    }
-
-    void FlickerEffect()
-    {
-        fillArea.color = Color.red;
     }
 }

@@ -14,6 +14,7 @@ public class SFXManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
     }
+
     public void PlaySound(AudioClip audioClip, float volume = 1)
     {
         if (audioSource.enabled == false) { return; }
