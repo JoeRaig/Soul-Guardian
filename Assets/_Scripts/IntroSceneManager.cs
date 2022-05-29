@@ -32,6 +32,8 @@ public class IntroSceneManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         StartCoroutine(StartIntro1());
         UpdateInfoText();
     }
