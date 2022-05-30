@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
+        mm.PlaySound(combatSong);
         SceneManager.LoadScene("Game");
     }
 
@@ -53,8 +54,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Skipping intro");
-            //isGameStarted = true;
-            //LoadGame();
+            isGameStarted = true;
+            LoadGame();
         }
     }
 

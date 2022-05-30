@@ -6,11 +6,13 @@ public class IntroSceneManager : MonoBehaviour
 {
     [SerializeField] GameObject infoPanel;
     [SerializeField] GameObject indicatorPanel;
+    [SerializeField] GameObject startPanel;
     [SerializeField] TextMeshProUGUI indicatorText;
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] AudioClip introSFX;
     [SerializeField] AudioClip introSong;
     [SerializeField] GameObject playerWeapon;
+    [SerializeField] Obelisk obeliskScript;
 
     SFXManager sm;
     MusicManager mm;
@@ -23,14 +25,15 @@ public class IntroSceneManager : MonoBehaviour
 
     int introTextIndex = 0;
     string[] introTexts1 = new string[] {
-        "Ese estruendo...Han pasado cinco años desde la ultima batalla",
+        "Ese estruendo...Han pasado cinco años desde la ultima vez",
         "Lo han vuelto a encontrar...",
         "No permitiré que se lleven las almas",
         "Debo llegar rápido al monolito...",
         "¡Un explorador! Maldita sea, se me han adelantado",
         "No me ha visto, debe estar en trance mientras transmite la localizacion",
         "Acabaré con él a distancia con mi bastón, quizá aún no sea demasiado tarde",
-        "",
+        "¡Esta infectado con criaturas demoniacas!...Mi magia es no les afectará",
+        "Las almas del monolito las atraen. Canalizaré su poder para acabar con ellas"
     };
     
     void Awake()
@@ -90,7 +93,7 @@ public class IntroSceneManager : MonoBehaviour
 
                 StartCoroutine(FirstIndicatorPanel());
             }
-            else if(introTextIndex == 6)
+            else if (introTextIndex == 6)
             {
                 IncrementText();
                 isDialogTime = false;
@@ -102,6 +105,12 @@ public class IntroSceneManager : MonoBehaviour
                 playerWeapon.SetActive(true);
 
                 StartCoroutine(SecondIndicatorPanel());
+            }
+            else if (introTextIndex == 8)
+            {
+                infoPanel.SetActive(false);
+                obeliskScript.enabled = true;
+                StartCoroutine(ThirdIndicatorPanel());
             }
             else
             {
@@ -129,13 +138,10 @@ public class IntroSceneManager : MonoBehaviour
         player.transform.Find("Crosshair").gameObject.SetActive(true);
     }
 
-    
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Activate it!");
             if (!isIntro2Started)
             {
                 StartCoroutine(StartIntro2());
@@ -152,12 +158,12 @@ public class IntroSceneManager : MonoBehaviour
         movement.StopPlayer();
         movement.enabled = false;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0f);
     }
 
     IEnumerator FirstIndicatorPanel()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         indicatorPanel.SetActive(true);
 
         yield return new WaitForSeconds(10f);
@@ -166,9 +172,36 @@ public class IntroSceneManager : MonoBehaviour
 
     IEnumerator SecondIndicatorPanel()
     {
-        indicatorText.text = "CAST - LEFT MOUSE CLICK";
+        indicatorText.text = "CAST PROJECTILE - LEFT MOUSE CLICK";
 
         yield return new WaitForSeconds(1.5f);
         indicatorPanel.SetActive(true);
+    }
+
+    IEnumerator ThirdIndicatorPanel()
+    {
+        indicatorText.text = "CAST PROJECTILE - LEFT MOUSE CLICK" +
+            "\nLIGHTNING STRIKE - RIGHT MOUSE CLICK";
+
+        yield return new WaitForSeconds(1f);
+        indicatorPanel.SetActive(true);
+
+        yield return new WaitForSeconds(2.5f);
+        startPanel.SetActive(true);
+    }
+
+
+    public void ActivateIntro3()
+    {
+        StartCoroutine(StartIntro3());
+    }
+
+    IEnumerator StartIntro3()
+    {
+        yield return new WaitForSeconds(2f);
+
+        indicatorPanel.SetActive(false);
+        infoPanel.SetActive(true);
+        isDialogTime = true;
     }
 }
