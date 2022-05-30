@@ -25,15 +25,15 @@ public class IntroSceneManager : MonoBehaviour
 
     int introTextIndex = 0;
     string[] introTexts1 = new string[] {
-        "Ese estruendo...Han pasado cinco años desde la ultima vez",
-        "Lo han vuelto a encontrar...",
-        "No permitiré que se lleven las almas, aunque sea mi ultima batalla...",
-        "Debo llegar rápido al monolito...",
-        "¡Un explorador! Maldita sea, se me han adelantado",
-        "No me ha visto, debe estar en trance mientras transmite la localizacion",
-        "Acabaré con él a distancia con mi bastón, quizá aún no sea demasiado tarde",
-        "¡Esta infectado con espectros demoniacos!...Mi magia es no les afectará",
-        "Las almas del monolito las atraen. Canalizaré su poder para acabar con ellas"
+        "That rumbling… It has been five years since the last time it happened.",
+        "They have found it again…",
+        "I will not let them steal the souls, even if it means fighting my last battle.",
+        "I must get to the obelisk quickly!",
+        "A pathfinder! Damn, they beat me to it!",
+        "It did not see me, it must be in some kind of trance while sending the location.",
+        "Maybe it is not too late. I will try to finish him off with my staff.",
+        "It is infected with evil wraiths. My magic will not affect them.",
+        "They are being lured by the souls in the obelisk. I will channel its power so that I can finish them off."
     };
     
     void Awake()

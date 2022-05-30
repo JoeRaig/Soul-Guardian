@@ -197,17 +197,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a512a5840eacf4c8172a70b971478d, type: 3}
---- !u!114 &87068723 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8310172555412679152, guid: e4a512a5840eacf4c8172a70b971478d, type: 3}
-  m_PrefabInstance: {fileID: 87068722}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124b89c0a13d4f9468acf535b55564f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &215274823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,10 +1401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885541550}
     m_Modifications:
-    - target: {fileID: 2640540280504585994, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 87068723}
     - target: {fileID: 2640540281407008496, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
       propertyPath: m_Name
       value: Intro Canvas

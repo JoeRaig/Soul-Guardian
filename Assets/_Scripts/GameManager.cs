@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 1) return;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             isGameStarted = true;
             LoadGame();
@@ -65,12 +65,6 @@ public class GameManager : MonoBehaviour
         {
             LoadGame();
         }
-    }
-
-    public void QuitGame()
-    {
-        sm.PlayOneShot(buttonSFX);
-        Application.Quit();
     }
 
     void SingletonMe()
