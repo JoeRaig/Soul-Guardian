@@ -38,14 +38,14 @@ public class GameManager : MonoBehaviour
         mm.StopAudio();
         sm.PlayOneShot(buttonSFX);
 
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene(1);
     }
 
     public void LoadGame()
     {
         Time.timeScale = 1;
         mm.PlaySound(combatSong);
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(2);
     }
 
     public void SkipIntro()

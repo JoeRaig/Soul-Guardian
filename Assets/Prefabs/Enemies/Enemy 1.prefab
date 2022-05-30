@@ -278,7 +278,7 @@ MonoBehaviour:
   deathVFX: {fileID: 5486446343404674062}
   impactVFX: {fileID: 3454425208146815116, guid: 81d910c26268c8f4aab84b0195b68513, type: 3}
   minionAmount: 3
-  moveSpeed: 3
+  moveSpeed: 4
   chaseStopRange: 2.25
 --- !u!114 &1090791253099574965
 MonoBehaviour:

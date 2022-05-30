@@ -232,7 +232,7 @@ MonoBehaviour:
   impactVFX: {fileID: 3454425208146815116, guid: 81d910c26268c8f4aab84b0195b68513, type: 3}
   shootSFX: {fileID: 8300000, guid: fd3ee3dade7b5a6439414639c809bd92, type: 3}
   minionAmount: 2
-  moveSpeed: 2
+  moveSpeed: 3
   chaseStopRange: 6
   shootRange: 10
   shootDelay: 3
