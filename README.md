@@ -4,14 +4,14 @@
 Hordes of enemies are summoned and march, drawn by the power of the obelisk. The guardian is alone, but he will fight to the end to protect the souls of the forest. How many waves can he withstand?"
 
 This game was created for "The GameDev.tv Game Jam 2022" in less than 10 days by 1 person.
+
 Theme:
-
 "DEATH IS ONLY THE BEGINNING!"
+
 Genre:
-
 Top-down shooter, Bullet hell
-Objective:  
 
+Objective:  
 Survive the hordes of enemies and protect the obelisk from the wraiths who want to steal the souls of the forest.  
 Controls:
 
@@ -29,7 +29,8 @@ Space - Skip dialog
 
 Enter - Skip Intro
 
-ESC - Leave full screen                              
+ESC - Leave full screen        
+
 Attribution (and thanks so much!) to:
 
 Sprites:
