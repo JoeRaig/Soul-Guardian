@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Skipping intro");
             isGameStarted = true;
             LoadGame();
         }
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) && isGameStarted)
         {
-            SceneManager.LoadScene("Game");
+            LoadGame();
         }
     }
 

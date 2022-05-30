@@ -24,6 +24,7 @@ public class EnemyMelee : MonoBehaviour
     EnemyHealth enemyHealthScript;
     Transform minionPool;
     SFXManager sm;
+    WaveCounter waveCounter;
 
     bool isActive = false;
     bool isDead = false;
@@ -37,6 +38,7 @@ public class EnemyMelee : MonoBehaviour
         enemyHealthScript = GetComponent<EnemyHealth>();
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+        waveCounter = GameObject.FindGameObjectWithTag("WaveCounter").GetComponent<WaveCounter>();
     }
 
     void Start()
@@ -141,6 +143,8 @@ public class EnemyMelee : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
+
+            waveCounter.IncreaseEnemyCounter();
 
             StartCoroutine(DeathSequence());
         }

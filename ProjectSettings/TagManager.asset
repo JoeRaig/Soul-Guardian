@@ -17,6 +17,8 @@ TagManager:
   - PlayerHealthUI
   - MusicManager
   - SFXManager
+  - WaveCounter
+  - SpawnManager
   layers:
   - Default
   - TransparentFX

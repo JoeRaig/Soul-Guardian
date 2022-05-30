@@ -26,6 +26,7 @@ public class EnemyDistance : MonoBehaviour
     Transform minionPool;
     Transform bulletPool;
     SFXManager sm;
+    WaveCounter waveCounter;
 
     bool isActive = false;
     bool isDead = false;
@@ -41,6 +42,7 @@ public class EnemyDistance : MonoBehaviour
         minionPool = GameObject.FindGameObjectWithTag("MinionPool").GetComponent<Transform>();
         bulletPool = GameObject.FindGameObjectWithTag("BulletPool").GetComponent<Transform>();
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+        waveCounter = GameObject.FindGameObjectWithTag("WaveCounter").GetComponent<WaveCounter>();
     }
 
     void Start()
@@ -152,6 +154,8 @@ public class EnemyDistance : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
+
+            waveCounter.IncreaseEnemyCounter();
 
             StartCoroutine(DeathSequence());
         }

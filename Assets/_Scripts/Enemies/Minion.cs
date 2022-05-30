@@ -8,6 +8,7 @@ public class Minion : MonoBehaviour
 
     Animator anim;
     ObeliskHealth obeliskHealthScript;
+    WaveCounter waveCounter;
     Transform target;
 
     bool isActive = false;
@@ -19,8 +20,8 @@ public class Minion : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-
         GameObject obelisk = GameObject.FindGameObjectWithTag("Obelisk");
+        waveCounter = GameObject.FindGameObjectWithTag("WaveCounter").GetComponent<WaveCounter>();
         obeliskHealthScript = obelisk.GetComponent<ObeliskHealth>();
         target = obelisk.transform.GetChild(0).GetComponent<Transform>();
     }
@@ -96,6 +97,8 @@ public class Minion : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isAttacking", false);
             anim.SetTrigger("Death");
+
+            waveCounter.IncreaseMinionCounter();
         }
     }
 

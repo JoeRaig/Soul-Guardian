@@ -13,7 +13,9 @@ public class SpawnManager : MonoBehaviour
     bool isGameStarted = false;
 
     bool waveFinish = true;
+
     int waveNumber = 1;
+    public int WaveNumber { get => waveNumber; }
 
     int enemyWaveCurrent = 0;
     int enemyWaveIncremental = 1;
@@ -32,7 +34,6 @@ public class SpawnManager : MonoBehaviour
     {
         GetSpawnPoints();
 
-        // Refactor
         isGameStarted = true; 
     }
 
@@ -86,10 +87,7 @@ public class SpawnManager : MonoBehaviour
     {
         waveNumber++;
         enemyWaveIncremental++;
-
-        if (enemyWaveIncremental % 2 == 0) enemyWaveTotal++;
-
-        Debug.Log(enemyWaveTotal);
+        enemyWaveTotal++;
     }
 
     GameObject GetRandomEnemyPrefab()
