@@ -21,8 +21,8 @@ public class SpawnManager : MonoBehaviour
     int enemyWaveIncremental = 1;
     int enemyWaveTotal = 2;
     
-    float spawnEnemyDelay = 2.5f;
-    float spawnWaveDelay = 7f;
+    float spawnEnemyDelay = 1f;
+    float spawnWaveDelay = 6f;
 
     void Awake()
     {

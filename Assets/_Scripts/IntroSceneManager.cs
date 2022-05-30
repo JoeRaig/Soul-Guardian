@@ -27,12 +27,12 @@ public class IntroSceneManager : MonoBehaviour
     string[] introTexts1 = new string[] {
         "Ese estruendo...Han pasado cinco años desde la ultima vez",
         "Lo han vuelto a encontrar...",
-        "No permitiré que se lleven las almas",
+        "No permitiré que se lleven las almas, aunque sea mi ultima batalla...",
         "Debo llegar rápido al monolito...",
         "¡Un explorador! Maldita sea, se me han adelantado",
         "No me ha visto, debe estar en trance mientras transmite la localizacion",
         "Acabaré con él a distancia con mi bastón, quizá aún no sea demasiado tarde",
-        "¡Esta infectado con criaturas demoniacas!...Mi magia es no les afectará",
+        "¡Esta infectado con espectros demoniacos!...Mi magia es no les afectará",
         "Las almas del monolito las atraen. Canalizaré su poder para acabar con ellas"
     };
     

@@ -83,7 +83,7 @@ public class Minion : MonoBehaviour
 
     public void InflictDamage()
     {
-        obeliskHealthScript.CurrentHitPoints--;
+        obeliskHealthScript.ReduceObeliskHealth();
     }
 
     public void ReceiveDamage()

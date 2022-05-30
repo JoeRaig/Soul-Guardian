@@ -7,9 +7,16 @@ public class WaveCounter : MonoBehaviour
     SpawnManager spawnManagerScript;
 
     int enemyCounter;
-    int minionCounter;
+    public int EnemyCounter { get => enemyCounter; }
 
-     void Awake()
+    int minionCounter;
+    public int MinionCounter { get => minionCounter; }
+
+    int waveCounter;
+    public int WavesSurvived { get => waveCounter; }
+
+
+    void Awake()
     {
         counterText = GetComponent<TextMeshProUGUI>();
         spawnManagerScript = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
@@ -26,14 +33,12 @@ public class WaveCounter : MonoBehaviour
     void Update()
     {
         DisplayWaveCounter();
-
-        Debug.Log("Enemies: " + enemyCounter);
-        Debug.Log("Minions: " + minionCounter);
     }
 
     void DisplayWaveCounter()
     {
-        counterText.text = "Wave: " + spawnManagerScript.WaveNumber;
+        waveCounter = spawnManagerScript.WaveNumber;
+        counterText.text = "Wave: " + waveCounter;
     }
 
     public void IncreaseEnemyCounter()

@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     GameObject playerHealthUI;
     MusicManager mm;
     SFXManager sm;
+    EndPanel endPanelScript;
 
     int hitPoints = 5;
     bool playerIsDead = false;
@@ -25,6 +26,7 @@ public class Health : MonoBehaviour
         playerHealthUI = GameObject.FindGameObjectWithTag("PlayerHealthUI");
         sm = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
         mm = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
+        endPanelScript = GameObject.FindGameObjectWithTag("EndPanel").GetComponent<EndPanel>();
     }
 
     void Start()
@@ -61,7 +63,7 @@ public class Health : MonoBehaviour
             mm.PlaySound(gameOverMusic);
 
             Death();
-            DisablePlayerFunctionality();
+            FinishGame();
         }
     }
 
@@ -71,9 +73,17 @@ public class Health : MonoBehaviour
         anim.SetTrigger("Death");
     }
 
+    public void FinishGame()
+    {
+        DisablePlayerFunctionality();
+
+        endPanelScript.InitiateEndGame();
+    }
+
     void DisablePlayerFunctionality()
     {
         Destroy(gameObject.GetComponent<Movement>());
+        Destroy(gameObject.GetComponent<Shooting>());
         Destroy(gameObject.GetComponent<Rigidbody2D>());
         anim.SetBool("isRunning", false);
         weapon.SetActive(false);
