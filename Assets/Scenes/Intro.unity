@@ -1412,18 +1412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 885541550}
     m_Modifications:
-    - target: {fileID: 2640540280294467607, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2640540280504585994, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: -5033884579438549468, guid: f1caab3b8fe447445993155b61430310, type: 3}
-    - target: {fileID: 2640540280504585994, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 1763989116612304091, guid: f1caab3b8fe447445993155b61430310, type: 3}
     - target: {fileID: 2640540280504585994, guid: 3429c257a44a9894595411dbf25066a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

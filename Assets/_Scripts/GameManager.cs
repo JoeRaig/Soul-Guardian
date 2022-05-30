@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log("Restarting game");
-
         Time.timeScale = 1;
         mm.PlaySound(combatSong);
         SceneManager.LoadScene("Game");
