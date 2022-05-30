@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 542964006606276018}
   - component: {fileID: 542964006606276029}
   - component: {fileID: 542964006606276028}
+  - component: {fileID: 542964007139101031}
   m_Layer: 0
   m_Name: Follow Camera
   m_TagString: Untagged
@@ -80,6 +81,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7e63941eea51945ae39851fba2eca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &542964007139101031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542964006606276019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 11400000, guid: b6f6c050d23d49241ae7e398b5cb33f5, type: 2}
 --- !u!1 &542964007918503721
 GameObject:
   m_ObjectHideFlags: 0
