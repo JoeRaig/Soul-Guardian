@@ -1,82 +1,26 @@
-# Soul-Guardian
-"A tremor shakes the trees. Something stirs in the forest. The last guardian awakens and runs to the clearing where the relic awaits. They have arrived, they have found it again...  
+[![banner](https://user-images.githubusercontent.com/48797109/171129067-01d1aad4-e5b4-4846-be2e-87809745690c.png)](https://joeraig.itch.io/soul-guardian)
 
-Hordes of enemies are summoned and march, drawn by the power of the obelisk. The guardian is alone, but he will fight to the end to protect the souls of the forest. How many waves can he withstand?"
+_A tremor shakes the trees. Something stirs in the forest. The last guardian awakens and runs to the clearing where the relic awaits. They have arrived, they have found it again..._
 
+_Hordes of enemies are summoned and march, drawn by the power of the obelisk. The guardian is alone, but he will fight to the end to protect the souls of the forest. How many waves can he withstand?_
+
+<br/>
 This game was created for "The GameDev.tv Game Jam 2022" in less than 10 days by 1 person.
 
-Theme:
+<br/><br/>
+Try it out on
+
+[![itch io](https://user-images.githubusercontent.com/48797109/171126970-2ada1d3d-109d-4be1-90bd-199b6f0d7172.jpg)](https://joeraig.itch.io/soul-guardian)
+
+
+## Theme:
 "DEATH IS ONLY THE BEGINNING!"
 
-Genre:
-Top-down shooter, Bullet hell
+## Genre:
+**Top-down shooter**, **Bullet hell**
 
-Objective:  
-Survive the hordes of enemies and protect the obelisk from the wraiths who want to steal the souls of the forest.  
-Controls:
+## Screenshots
 
-WASD - Movement
-
-Mouse - Aim
-
-Left click - Cast Fireball projectile (vs Enemies)
-
-Right click - Summon Lightning Strike (vs Wraiths)
-
-R - Restart game
-
-Space - Skip dialog
-
-Enter - Skip Intro
-
-ESC - Leave full screen        
-
-Attribution (and thanks so much!) to:
-
-Sprites:
-
-https://penusbmic.itch.io/the-cutest-hero
-
-https://pixivan.itch.io/simple-forest-tileset
-
-https://penusbmic.itch.io/monster-pack-i
-
-https://penusbmic.itch.io/sci-fi-character-pack-9
-
-https://penusbmic.itch.io/sci-fi-character-pack-6
-
-https://penusbmic.itch.io/sci-fi-character-pack-10
-
-https://pixelcreations.itch.io/rpg-items-16x16  
-
-VFXs:
-
-https://opengameart.org/content/gothicvania-magic-pack-9
-
-https://pimen.itch.io/dark-spell-effect
-
-https://pimen.itch.io/smoke-vfx-1
-
-https://pimen.itch.io/magical-animation-effects  
-
-Fonts:
-
-https://joebrogers.itch.io/bitpotion
-
-https://ninjikin.itch.io/font-antiquity-script
-
-Music / SFXs:
-
-https://ellr.itch.io/universal-ui-soundpack
-
-https://svl.itch.io/rpg-music-pack-svl
-
-https://opengameart.org/content/rockbreaking
-
-https://opengameart.org/content/8-magic-attacks
-
-https://kenney.nl/assets/impact-sounds
-
-https://opengameart.org/content/earthquake-and-open-sesame
-
-https://opengameart.org/content/game-over-0
+<img src="https://user-images.githubusercontent.com/48797109/171129136-12471fbc-0243-4d29-8b28-7e35937e4e7f.png" width="480">  <img src="https://user-images.githubusercontent.com/48797109/171129152-28522809-5960-489a-8d6b-ba90c69e08ae.png" width="480">
+<img src="https://user-images.githubusercontent.com/48797109/171131378-c01c411f-7641-4cd7-9e39-45c67e086714.png" width="480">  <img src="https://user-images.githubusercontent.com/48797109/171131389-d8493b97-77b7-432c-8b6c-dc9c5d355591.png" width="480">
+<img src="https://user-images.githubusercontent.com/48797109/171131945-56f3d324-e1db-47ed-a4cf-12d2f9abe80c.png" width="480"> 
